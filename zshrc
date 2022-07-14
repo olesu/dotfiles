@@ -10,6 +10,8 @@ antigen bundle command-not-found
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+antigen bundle 'https://github.com/MohamedElashri/exa-zsh.git@main'
+
 # Load the theme.
 antigen theme robbyrussell
 
