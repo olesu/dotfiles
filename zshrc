@@ -1,3 +1,10 @@
+ANTIGEN_ZSH="$HOME/.antigen/antigen.zsh"
+
+if [ ! -f "$ANTIGEN_ZSH" ]; then
+    curl -L git.io/antigen > "$ANTIGEN_ZSH"
+    # or use git.io/antigen-nightly for the latest version
+fi
+
 source "$ANTIGEN_ZSH"
 
 # Load the oh-my-zsh's library.
