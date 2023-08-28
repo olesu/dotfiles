@@ -1,6 +1,7 @@
 ANTIGEN_ZSH="$HOME/.antigen/antigen.zsh"
 
-if [ ! -f "$ANTIGEN_ZSH" ]; then
+if ! [ -f "$ANTIGEN_ZSH" ]; then
+    mkdir -p "$(basename "$ANTIGEN_ZSH")"
     curl -L git.io/antigen > "$ANTIGEN_ZSH"
     # or use git.io/antigen-nightly for the latest version
 fi
