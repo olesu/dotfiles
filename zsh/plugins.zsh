@@ -1,4 +1,6 @@
 # load antidote
+zstyle ":antidote:bundle" file "${ZSH_CONFIG_DIR}/zsh_plugins.txt"
+zstyle ":antidote:static" file "${ZDOTDIR:-$HOME}/.zsh_plugins.zsh"
 source "$(brew --prefix)"/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
