@@ -10,3 +10,4 @@ export FZF_CTRL_T_COMMAND="fd --type f | cless"
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=venv
 
+path+='/Applications/PyCharm CE.app/Contents/MacOS'

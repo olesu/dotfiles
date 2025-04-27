@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07eebea2-015b-47af-a3ac-51e4d371c6e3" name="Changes" comment="move antidote plugin list (zsh_plugins.txt) into project">
+    <list default="true" id="07eebea2-015b-47af-a3ac-51e4d371c6e3" name="Changes" comment="check that zshrc.zsh is in expected location">
+      <change afterPath="$PROJECT_DIR$/nvim/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nvim/init.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmux/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmux/tmux.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/zshrc.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/zshrc.zsh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zsh/env.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/env.zsh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,29 +21,29 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2qzEYNbybTGuVPBloRk6O5J0gSS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Shell Script.plugins.zsh.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Shell Script.plugins.zsh.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-495700d161d3-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.220" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -67,26 +72,25 @@
       <option name="project" value="LOCAL" />
       <updated>1735724936702</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="check that zshrc.zsh is in expected location">
+      <option name="closed" value="true" />
+      <created>1735979073353</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735979073353</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
     <option featureType="com.intellij.fileTypeFactory" implementationName=".zshrc" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="organize zsh config in this project" />
     <MESSAGE value="move antidote plugin list (zsh_plugins.txt) into project" />
-    <option name="LAST_COMMIT_MESSAGE" value="move antidote plugin list (zsh_plugins.txt) into project" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="check that zshrc.zsh is in expected location" />
+    <option name="LAST_COMMIT_MESSAGE" value="check that zshrc.zsh is in expected location" />
   </component>
 </project>
