@@ -15,5 +15,18 @@ require('lazy').setup({
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     { 'nvim-lualine/lualine.nvim' },
     { 'nvim-lua/plenary.nvim' },
+    { 'folke/tokyonight.nvim' },
+    { 'jeffkreeftmeijer/neovim-sensible' },
+    { 
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
+        config = function()
+            require('copilot').setup({
+                suggestion = { enabled = true },
+                panel = { enabled = true },
+            })
+        end,
+    },
 })
 

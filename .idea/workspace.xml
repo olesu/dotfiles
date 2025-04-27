@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07eebea2-015b-47af-a3ac-51e4d371c6e3" name="Changes" comment="check that zshrc.zsh is in expected location">
-      <change afterPath="$PROJECT_DIR$/nvim/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/init.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmux/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmux/tmux.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/env.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/env.zsh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nvim/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/init.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nvim/lazy-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/lazy-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nvim/lua/plugins.lua" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/lua/plugins.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nvim/lua/settings.lua" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/lua/settings.lua" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
