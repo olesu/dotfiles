@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/nvim/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/init.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nvim/lazy-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/lazy-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nvim/lua/plugins.lua" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/lua/plugins.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvim/lua/settings.lua" beforeDir="false" afterPath="$PROJECT_DIR$/nvim/lua/settings.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmux/tmux.conf" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/tmux.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

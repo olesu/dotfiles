@@ -17,6 +17,20 @@ require('lazy').setup({
     { 'nvim-lua/plenary.nvim' },
     { 'folke/tokyonight.nvim' },
     { 'jeffkreeftmeijer/neovim-sensible' },
+    { 'neovim/nvim-lspconfig' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-cmdline' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-vsnip' },
+    { 'hrsh7th/vim-vsnip' },
+    { 
+      'zbirenbaum/copilot-cmp',
+      config = function ()
+        require('copilot_cmp').setup()
+      end
+    },
     { 
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
