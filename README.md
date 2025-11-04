@@ -14,4 +14,3 @@ pip install --upgrade pip pynvim
 ```
 
 See [python.lua](./nvim/lua/python.lua) for more details.
-
