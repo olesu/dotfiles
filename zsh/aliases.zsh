@@ -1,7 +1,7 @@
 # Aliases
 cat() {
     if [[ -t 1 ]]; then
-        command colorize_cat "$@"
+        command bat "$@"
     else
         command cat "$@"
     fi
