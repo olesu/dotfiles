@@ -123,3 +123,9 @@ pip install --upgrade pip pynvim
 - `.venv` in dotfiles = Neovim only, has pynvim
 - `.venv` in project = LSP/tools only, auto-detected
 - Never mix them - LSP should NOT use Neovim's provider venv
+
+## Git Workflow
+
+**Important**: Do NOT commit changes unless explicitly asked. Stage changes and report what was done, then wait for the user to request a commit. This allows the user to review and decide when to commit.
+
+**Formatting**: Before staging any file, format it using VS Code's formatter (`editor.action.formatDocument`) to ensure consistent style. This applies to Markdown, Lua, shell scripts, and all other file types.
