@@ -1,18 +1,10 @@
 # Dotfiles
 
-Personal workstation configuration with Neovim, Tmux, and Zsh.
+Personal macOS workstation configuration for Neovim, Tmux, and Zsh.
 
-## Prerequisites
+## Setup
 
-- macOS with Homebrew
-- Zsh
-- Neovim (0.9+)
-- Tmux
-- Git
-
-## Quick Start
-
-1. Clone the repository:
+1. Clone and enter the repository:
    ```bash
    git clone <your-repo-url> ~/.dotfiles
    cd ~/.dotfiles
@@ -27,18 +19,13 @@ Personal workstation configuration with Neovim, Tmux, and Zsh.
 
 3. Create symlinks:
    ```bash
-   # Neovim
-   rm -rf ~/.config/nvim
    ln -sf ~/.dotfiles/nvim ~/.config/nvim
-   
-   # Tmux
    ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
    ```
 
-4. Configure Zsh. Add to your `~/.zshrc`:
+4. Configure Zsh by adding this to `~/.zshrc`:
    ```bash
-   # Source Zsh configuration from dotfiles
-   ZSH_CONFIG_DIR="${HOME}/.dotfiles/zsh"
+   export ZSH_CONFIG_DIR="${HOME}/.dotfiles/zsh"
    source "${ZSH_CONFIG_DIR}/zshrc.zsh"
    ```
 
@@ -47,46 +34,9 @@ Personal workstation configuration with Neovim, Tmux, and Zsh.
    exec zsh
    ```
 
-## Configuration Details
+## What's Inside
 
-### Neovim
-
-- **Python provider**: Uses `~/.dotfiles/.venv/python` (must have pynvim installed)
-- **Plugin manager**: LazyVim
-- **Location**: `~/.config/nvim` → `~/.dotfiles/nvim`
-
-See [nvim/README.md](./nvim/README.md) for more details.
-
-### Tmux
-
-- **Prefix**: `Ctrl-a` (remapped from `Ctrl-b`)
-- **Theme**: Catppuccin Mocha
-- **Plugins**: Managed via TPM (Tmux Plugin Manager)
-- **Pane numbering**: Starts at 1 (not 0)
-- **Location**: `~/.tmux.conf` → `~/.dotfiles/tmux/tmux.conf`
-
-See [tmux/README.md](./tmux/README.md) for more details.
-
-### Zsh
-
-- **Configuration location**: `~/.dotfiles/zsh/`
-- **Plugin manager**: Antidote (via Oh My Zsh)
-- **Plugins**: See `zsh_plugins.txt`
-
-Modular setup with separate files:
-- `env.zsh` - Environment variables
-- `plugins.zsh` - Plugin configuration
-- `aliases.zsh` - Aliases
-- `functions.zsh` - Custom functions
-
-## Python Virtual Environment
-
-The `.venv` in the dotfiles directory is used exclusively for Neovim's Python provider. It requires `pynvim`:
-
-```bash
-cd ~/.dotfiles
-source .venv/bin/activate
-pip install --upgrade pip pynvim
-```
-
-Project-specific virtual environments (`.venv` in project directories) are automatically detected by LSP servers and tools.
+- **nvim/** - Neovim config (LazyVim) symlinked to `~/.config/nvim`
+- **tmux/** - Tmux config symlinked to `~/.tmux.conf`
+- **zsh/** - Zsh configuration with Antidote plugin manager
+- **.venv/** - Python virtual environment for Neovim (has pynvim)
