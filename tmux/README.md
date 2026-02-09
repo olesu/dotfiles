@@ -9,7 +9,7 @@ brew install tmux
 Link config file
 
 ```bash
-ln -s ~/Developer/PycharmProjects/mgmt/tmux/tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ```
 
 ## Install Tmux Plugin Manager
@@ -35,4 +35,4 @@ brew install --cask font-meslo-lg-nerd-font
 
 1. Open iTerm2
 2. Preferences > Profiles > Text
-3. Change Font to MesloLGL Nerrd Font
+3. Change Font to MesloLGL Nerd Font

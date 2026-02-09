@@ -3,7 +3,7 @@
 ## Link config file
 
 ```bash
-ln -s ~/Developer/PycharmProjects/mgmt/nvim ~/.config/nvim
+ln -s ~/.dotfiles/nvim ~/.config/nvim
 ```
 
 ## Plugin Manager
