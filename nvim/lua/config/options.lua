@@ -1,4 +1,6 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
-vim.g.python3_host_prog = "/path/to/py3nvim/bin/python"
+
+-- Use dotfiles venv for Neovim's Python provider (must have pynvim installed)
+vim.g.python3_host_prog = vim.fn.expand("~/.dotfiles/.venv/bin/python")
