@@ -20,12 +20,14 @@ See [python.lua](./nvim/lua/python.lua) for more details.
 ### Initial Setup
 
 1. Clone this repository to `~/.dotfiles`:
+
    ```bash
    git clone <your-repo-url> ~/.dotfiles
    cd ~/.dotfiles
    ```
 
 2. Set up Python virtual environment:
+
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate
@@ -33,6 +35,7 @@ See [python.lua](./nvim/lua/python.lua) for more details.
    ```
 
 3. Configure your `~/.zshrc`:
+
    ```bash
    # Source Zsh configuration from dotfiles
    ZSH_CONFIG_DIR="${HOME}/.dotfiles/zsh"
