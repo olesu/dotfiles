@@ -63,3 +63,27 @@ dev() {
         tmux new-session -A -s "$session_name"
     fi
 }
+
+# Conventional commit helper
+commit() {
+    local types=("feat" "fix" "docs" "style" "refactor" "perf" "test" "chore" "ci" "build")
+    
+    echo "Select commit type:"
+    select type in "${types[@]}"; do
+        if [ -n "$type" ]; then
+            break
+        fi
+    done
+    
+    echo -n "Scope (optional, press enter to skip): "
+    read scope
+    
+    echo -n "Commit message: "
+    read message
+    
+    if [ -n "$scope" ]; then
+        git commit -m "${type}(${scope}): ${message}"
+    else
+        git commit -m "${type}: ${message}"
+    fi
+}
