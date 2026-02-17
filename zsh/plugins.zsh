@@ -13,3 +13,6 @@ zstyle ':omz:plugins:eza' 'hyperlink' yes
 export ZSH_COLORIZE_TOOL=chroma
 export ZSH_COLORIZE_STYLE=tokyonight-night
 export ZSH_COLORIZE_CHROMA_FORMATTER=terminal16m
+
+# zoxide
+eval "$(zoxide init zsh)"
