@@ -32,6 +32,7 @@ brew install git-delta jq yq zoxide lazygit
    ```bash
    ln -sf ~/.dotfiles/nvim ~/.config/nvim
    ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+   ln -sf ~/.dotfiles/starship/starship.toml ~/.config/starship.toml
    ```
 
 4. Configure Zsh by adding this to `~/.zshrc`:
@@ -51,5 +52,6 @@ brew install git-delta jq yq zoxide lazygit
 
 - **nvim/** - Neovim config (LazyVim) symlinked to `~/.config/nvim`
 - **tmux/** - Tmux config symlinked to `~/.tmux.conf`
+- **starship/** - Starship prompt config symlinked to `~/.config/starship.toml`
 - **zsh/** - Zsh configuration with Antidote plugin manager
 - **.venv/** - Python virtual environment for Neovim (has pynvim)

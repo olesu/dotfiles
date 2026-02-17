@@ -1,0 +1,98 @@
+format = """
+[](#a6adc8)\
+$os\
+$username\
+[](bg:#cba6f7 fg:#a6adc8)\
+$directory\
+[](fg:#cba6f7 bg:#74c7ec)\
+$git_branch\
+$git_status\
+[](fg:#74c7ec bg:#94e2d5)\
+$nodejs\
+$rust\
+$golang\
+$python\
+[](fg:#94e2d5 bg:#89b4fa)\
+$time\
+[ ](fg:#89b4fa)\
+$line_break$character"""
+
+[os]
+disabled = false
+style = "bg:#a6adc8 fg:#1e1e2e"
+
+[os.symbols]
+Macos = "󰀵 "
+
+[username]
+show_always = false
+style_user = "bg:#a6adc8 fg:#1e1e2e"
+style_root = "bg:#a6adc8 fg:#f38ba8"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:#1e1e2e bg:#cba6f7"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+".dotfiles" = " "
+
+[git_branch]
+symbol = " "
+style = "bg:#74c7ec fg:#1e1e2e"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#74c7ec fg:#1e1e2e"
+format = '[$all_status$ahead_behind ]($style)'
+
+[git_metrics]
+disabled = false
+added_style = "bg:#74c7ec fg:#a6e3a1"
+deleted_style = "bg:#74c7ec fg:#f38ba8"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[nodejs]
+symbol = " "
+style = "bg:#94e2d5 fg:#1e1e2e"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = " "
+style = "bg:#94e2d5 fg:#1e1e2e"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#94e2d5 fg:#1e1e2e"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = " "
+style = "bg:#94e2d5 fg:#1e1e2e"
+format = '[ $symbol ($version) (\($virtualenv\)) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#89b4fa fg:#1e1e2e"
+format = '[  $time ]($style)'
+
+[cmd_duration]
+min_time = 500
+style = "bg:#f9e2af fg:#1e1e2e"
+format = '[ 󱦟 $duration ]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)"
