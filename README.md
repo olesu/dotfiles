@@ -2,6 +2,14 @@
 
 Personal macOS workstation configuration for Neovim, Tmux, and Zsh.
 
+## Prerequisites
+
+Install required tools via Homebrew:
+
+```bash
+brew install git-delta jq yq zoxide lazygit
+```
+
 ## Setup
 
 1. Clone and enter the repository:
