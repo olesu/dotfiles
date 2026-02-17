@@ -16,3 +16,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 path+=~/.local/bin
+
+# Unset GIT_PAGER to allow git config to control pager (delta)
+unset GIT_PAGER
