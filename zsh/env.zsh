@@ -9,6 +9,7 @@ export FZF_CTRL_T_COMMAND="fd --type f | cless"
 # ohmyzsh python plugin
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
+export VIRTUAL_ENV_DISABLE_PROMPT=1  # prevent venv deactivate from overwriting Starship's PROMPT
 
 source "${HOME}/.config/op/plugins.sh"
 
