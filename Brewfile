@@ -20,6 +20,10 @@ brew "starship"         # Cross-shell prompt
 brew "tmux"             # Terminal multiplexer
 brew "neovim"           # Modern vim
 
+# Ruby version manager
+brew "rbenv"            # Ruby version manager
+brew "ruby-build"       # rbenv plugin to install Ruby versions
+
 # Optional but recommended
 brew "gh"               # GitHub CLI
 brew "node"             # Node.js for LSP servers

@@ -20,3 +20,6 @@ path+=~/.local/bin
 
 # Unset GIT_PAGER to allow git config to control pager (delta)
 unset GIT_PAGER
+
+# rbenv - Ruby version manager
+eval "$(rbenv init - zsh)"
