@@ -17,6 +17,7 @@ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
 ### Install plugins
 
 1. Start tmux

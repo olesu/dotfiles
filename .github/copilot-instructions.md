@@ -5,6 +5,7 @@ Personalized workstation configuration repository for macOS with Neovim, Tmux, a
 ## Code Style
 
 ### Lua (Neovim)
+
 - **Formatter**: stylua (configured in [nvim/stylua.toml](nvim/stylua.toml))
 - **Settings**: 2-space indents, 120 column width
 - **Structure**: LazyVim plugin-based with modular config files in `nvim/lua/`
@@ -13,6 +14,7 @@ Personalized workstation configuration repository for macOS with Neovim, Tmux, a
 - **Plugin specs**: Use LazyVim's `opts` pattern for configuration (see [nvim/lua/plugins/](nvim/lua/plugins/))
 
 ### Bash/Zsh
+
 - **Shell**: Zsh with Antidote plugin manager
 - **Modular approach**: Separate thematic files (env.zsh, aliases.zsh, functions.zsh, plugins.zsh)
 - **Config location**: `~/.dotfiles/zsh/` sourced via `ZSH_CONFIG_DIR` in `~/.zshrc`
@@ -20,7 +22,7 @@ Personalized workstation configuration repository for macOS with Neovim, Tmux, a
 
 ## Architecture
 
-```
+```text
 ~/.dotfiles/
 ├── nvim/              → symlink to ~/.config/nvim (LazyVim)
 │   ├── lua/
@@ -41,6 +43,7 @@ Personalized workstation configuration repository for macOS with Neovim, Tmux, a
 ```
 
 ### Key Design Decisions
+
 1. **Symlinks** point FROM system locations TO dotfiles repo, enabling version control
 2. **Python venv separation**:
    - `~/.dotfiles/.venv` - Neovim provider only (requires pynvim)
@@ -51,6 +54,7 @@ Personalized workstation configuration repository for macOS with Neovim, Tmux, a
 ## Setup
 
 ### Initial Setup
+
 ```bash
 cd ~/.dotfiles
 python3 -m venv .venv && source .venv/bin/activate && pip install pynvim
@@ -60,9 +64,11 @@ ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ```
 
 ### Python Virtual Environment
+
 The dotfiles `.venv` is **exclusively for Neovim's python3_host_prog** (configured in [nvim/lua/config/options.lua](nvim/lua/config/options.lua)).
 
 After creating `.venv`, always install pynvim:
+
 ```bash
 source ~/.dotfiles/.venv/bin/activate
 pip install --upgrade pip pynvim
@@ -71,6 +77,7 @@ pip install --upgrade pip pynvim
 ## Project Conventions
 
 ### Neovim
+
 - **Python provider**: Always use `~/.dotfiles/.venv/bin/python` (has pynvim)
 - **Project detection**: Autocmd in [nvim/lua/config/autocmds.lua](nvim/lua/config/autocmds.lua) detects `.venv` and sets `VIRTUAL_ENV/PATH` for LSP tools
 - **LSP servers**: Configured via plugin specs in `nvim/lua/plugins/`, auto-installed by Mason
@@ -78,6 +85,7 @@ pip install --upgrade pip pynvim
 - **Plugin style**: Prefer LazyVim extras (in [nvim/lazyvim.json](nvim/lazyvim.json)) over custom plugins
 
 ### Tmux
+
 - **Prefix**: `Ctrl-a` (remapped via [tmux/tmux.conf](tmux/tmux.conf), line 7)
 - **Plugins**: Managed by TPM (auto-installs on first load)
 - **Theme**: Catppuccin mocha via `@plugin 'catppuccin/tmux'`
@@ -85,6 +93,7 @@ pip install --upgrade pip pynvim
 - **Numbering**: Windows and panes start at 1 (not 0) - set via `base-index` and `pane-base-index`
 
 ### Zsh
+
 - **Plugin manager**: Antidote (loaded in [zsh/plugins.zsh](zsh/plugins.zsh))
 - **Bundle file**: [zsh/zsh_plugins.txt](zsh/zsh_plugins.txt) - add plugins there, not in code
 - **Auto-load**: New config files in `zsh/` with `*.zsh` extension auto-source if found
@@ -93,16 +102,19 @@ pip install --upgrade pip pynvim
 ## Integration Points
 
 ### Neovim ↔ Tmux
+
 - **vim-tmux-navigator** plugin ([nvim/lua/plugins/vim-tmux-navigator.lua](nvim/lua/plugins/vim-tmux-navigator.lua))
   - Ctrl-hjkl navigate between Neovim splits AND Tmux panes seamlessly
   - Requires Tmux prefix binding `bind C-a send-prefix` (already configured)
 
 ### Python in Neovim
+
 - **Provider**: [nvim/lua/config/options.lua](nvim/lua/config/options.lua) sets `python3_host_prog` to `~/.dotfiles/.venv/bin/python`
 - **Project detection**: [nvim/lua/config/autocmds.lua](nvim/lua/config/autocmds.lua) finds project `.venv` on BufEnter for Python files
 - **LSP venv**: [nvim/lua/plugins/python.lua](nvim/lua/plugins/python.lua) configures pyright to detect venvPath/pythonPath
 
 ### Zsh Integration
+
 - Antidote loads all plugins from [zsh/zsh_plugins.txt](zsh/zsh_plugins.txt)
 - Plugin options set in [zsh/plugins.zsh](zsh/plugins.zsh) (e.g., eza icons, colorize style)
 - Python plugin auto-activates `.venv` in directories (via `PYTHON_AUTO_VRUN` in [zsh/env.zsh](zsh/env.zsh))
@@ -110,16 +122,19 @@ pip install --upgrade pip pynvim
 ## Important Notes
 
 ### When Adding Plugins
+
 1. **Neovim**: Add to plugin spec in `nvim/lua/plugins/` (lazy-load preferred)
 2. **Tmux**: Add to [tmux/tmux.conf](tmux/tmux.conf) as `set -g @plugin 'owner/name'`, must be before `run-shell... tpm`
 3. **Zsh**: Add to [zsh/zsh_plugins.txt](zsh/zsh_plugins.txt), run `antidote bundle && restart shell`
 
 ### When Modifying Configuration
+
 - Changes to `nvim/lua/` take effect on next Neovim restart
 - Changes to `tmux/tmux.conf` require `tmux source-file ~/.tmux.conf` or `kill-server` for major changes
 - Changes to `zsh/` files require `exec zsh` or terminal restart
 
 ### Virtual Environment Awareness
+
 - `.venv` in dotfiles = Neovim only, has pynvim
 - `.venv` in project = LSP/tools only, auto-detected
 - Never mix them - LSP should NOT use Neovim's provider venv

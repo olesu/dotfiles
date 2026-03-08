@@ -67,6 +67,7 @@ brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote star
 ## Features
 
 ### Modern CLI Tools
+
 - **zoxide** - Smart `cd` with frecency-based directory jumping (`z` command)
 - **lazygit** - Beautiful terminal UI for git operations
 - **delta** - Syntax-highlighted diffs with side-by-side view
@@ -75,6 +76,7 @@ brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote star
 - **bat** - `cat` with syntax highlighting
 
 ### Neovim (LazyVim)
+
 - **GitHub Copilot** - AI pair programming
 - **Harpoon** - Quick file navigation (`<leader>ha` to mark, `<leader>1-4` to jump)
 - **LazyGit integration** - Press `<leader>gg` for git UI
@@ -83,6 +85,7 @@ brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote star
 - **Custom snippets** - For Python, Lua, Markdown
 
 ### Tmux
+
 - **Prefix**: `Ctrl-a` (not `Ctrl-b`)
 - **Vim integration** - Seamless pane navigation with `Ctrl-hjkl`
 - **Session management** - Fuzzy session switcher (`prefix + s`)
@@ -90,6 +93,7 @@ brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote star
 - **Plugins**: resurrect/continuum (session persistence), yank, open, copycat
 
 ### Zsh
+
 - **Custom functions**: `mkcd`, `extract`, `gcp`, `dev`, `commit`
 - **Git aliases**: `git st`, `git amend`, `git undo`, `git lg`
 - **Starship prompt** - Beautiful Catppuccin theme with git metrics
@@ -99,6 +103,7 @@ brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote star
 ## Troubleshooting
 
 ### Neovim: Python provider not found
+
 ```bash
 cd ~/.dotfiles
 source .venv/bin/activate
@@ -106,6 +111,7 @@ pip install --upgrade pynvim
 ```
 
 ### Tmux: Plugins not loading
+
 ```bash
 # Install TPM plugins
 prefix + I
@@ -115,6 +121,7 @@ prefix + r
 ```
 
 ### Zsh: Slow startup
+
 ```bash
 # Profile zsh startup
 zsh -i -c exit
@@ -124,6 +131,7 @@ time antidote bundle
 ```
 
 ### Delta: Not showing side-by-side
+
 ```bash
 # Check terminal width (needs ≥120 chars)
 tmux display-message -p '#{pane_width}x#{pane_height}'
