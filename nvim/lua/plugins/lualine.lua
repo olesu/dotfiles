@@ -11,27 +11,12 @@ return {
       end
     end
 
-    local function copilot_status()
-      local status = require("copilot.api").status.data
-      if status.status == "Normal" then
-        return ""
-      elseif status.status == "InProgress" then
-        return " "
-      else
-        return ""
-      end
-    end
-
     -- Modify lualine sections
     opts.sections = opts.sections or {}
     opts.sections.lualine_b = opts.sections.lualine_b or {}
     opts.sections.lualine_x = opts.sections.lualine_x or {}
 
-    -- Add copilot status and macro recording
-    table.insert(opts.sections.lualine_x, 1, {
-      copilot_status,
-      color = { fg = "#6aadc8" },
-    })
+    -- Add macro recording
     table.insert(opts.sections.lualine_x, 1, {
       show_macro_recording,
       color = { fg = "#ff9e64" },
