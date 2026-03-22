@@ -6,7 +6,7 @@ return {
         settings = {
           python = {
             venvPath = ".",
-            pythonPath = ".venv/bin/python",
+            venv = ".venv",
           },
         },
       },

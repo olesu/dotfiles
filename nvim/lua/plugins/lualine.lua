@@ -22,6 +22,12 @@ return {
       color = { fg = "#ff9e64" },
     })
 
+    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+      callback = function()
+        require("lualine").refresh()
+      end,
+    })
+
     return opts
   end,
 }
