@@ -1,3 +1,6 @@
+export EDITOR=nvim
+export VISUAL=nvim
+
 LESSOPEN="|$(brew --prefix)/lesspipe.sh %s"
 export LESSOPEN
 
