@@ -13,6 +13,8 @@ Always follow the cycle:
 
 When a test requires new parameters on a type, introduce **one parameter per cycle**. Never add `url`, `session`, and `endpoint` in one step — that is three cycles, not one.
 
+Getting ahead of yourself here is expensive: each rollback and re-introduction costs multiple exchanges. The discipline pays for itself immediately.
+
 ## Always verify with the test runner
 
 Never declare red or green without actually running the tests. Assume nothing — the compiler and test runner have the final word.
