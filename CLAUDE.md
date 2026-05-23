@@ -13,7 +13,6 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `starship/starship.toml` → `~/.config/starship.toml`
 - `zsh/zshrc.zsh` sourced from `~/.zshrc`
 - `claude/commands/` → `~/.claude/commands`
-- `claude/hooks/` → `~/.claude/hooks`
 - `claude/settings.json` → `~/.claude/settings.json`
 
 ## Common Commands
