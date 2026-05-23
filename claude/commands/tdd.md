@@ -30,3 +30,7 @@ In Xcode, `BuildProject` only builds the app target. Compilation errors in the t
 ## Missing imports cause cascading errors
 
 A single missing `import Foundation` in a Swift test file produces dozens of "Cannot find type in scope" errors. Always check imports before diagnosing individual errors.
+
+## SourceKit errors mean a full rebuild is needed
+
+SourceKit diagnostics like "Loading the standard library failed" indicate a stale index, not a real code error. Run `BuildProject` followed by `RunSomeTests` to repopulate the compilation database — SourceKit errors should clear after that.
