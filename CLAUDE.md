@@ -14,6 +14,7 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `zsh/zshrc.zsh` sourced from `~/.zshrc`
 - `claude/commands/` → `~/.claude/commands`
 - `claude/settings.json` → `~/.claude/settings.json`
+- `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
 
 ## Common Commands
 
