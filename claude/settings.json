@@ -12,15 +12,6 @@
             "command": "jq -r '.tool_input.file_path // .tool_input.path // empty' | grep '\\.md$' | while IFS= read -r f; do markdownlint-cli2 \"$f\"; done"
           }
         ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/olesu/.claude/hooks/close-github-issues.sh"
-          }
-        ]
       }
     ]
   },
