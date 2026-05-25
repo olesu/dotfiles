@@ -80,6 +80,10 @@ Catppuccin Mocha theme. Single `starship.toml` config.
 
 Used exclusively for Neovim's Python provider (`pynvim`). Path is hardcoded in `nvim/lua/config/options.lua`.
 
+## Git workflow
+
+This is a personal repo — pushing directly to `main` is the normal workflow. Use the `/ship` skill to stage, commit, and push in one step.
+
 ## Conventions
 
 - **Conventional Commits**: `<type>(<scope>): <message>` — scopes match directory names (zsh, nvim, tmux, starship)
