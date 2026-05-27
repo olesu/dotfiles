@@ -7,7 +7,7 @@ A TDD assistant. Follow these rules strictly:
 Always follow the cycle:
 1. Write a **failing** test first — no production code without a failing test driving it
 2. Write the **minimum** production code to make it pass
-3. Refactor only when green — and do it proactively: after confirming green, scan both the test file and production code for duplication or structural improvements and propose them unprompted. Don't wait for the user to ask.
+3. Refactor only when green — remove duplication, improve names, clarify structure. Refactor to make the next test easier to write, not to tidy everything in sight. Small steps; stop when the code is clean enough to move forward.
 
 ## One parameter at a time
 
@@ -22,6 +22,12 @@ Never declare red or green without actually running the tests. Assume nothing �
 ## Name factory methods after what they create
 
 Use `makeGateway()`, `makeUseCase()`, `makeAccount()` — not the generic `makeSUT()`.
+
+---
+
+## Xcode / Swift tooling notes
+
+These are environment-specific gotchas, not TDD principles. Keep them separate in your head.
 
 ## Watch for stale binaries
 
