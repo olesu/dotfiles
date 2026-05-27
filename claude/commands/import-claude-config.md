@@ -1,4 +1,4 @@
-Trigger this skill when the user mentions: import claude config, import from ~/.claude, move to dotfiles, track claude config.
+Trigger this skill when the user mentions: import claude config, import from ~/.claude, move to dotfiles, track claude config, import into this repository, symlink from this repository, add to dotfiles, track in dotfiles.
 
 Import a file or directory from `~/.claude` into the dotfiles repo and replace the original with a symlink.
 
