@@ -31,12 +31,13 @@ git -C ~/.tmux/plugins/tpm fetch origin
 ### lazy.nvim
 
 ```bash
-git -C ~/.local/share/nvim/lazy/lazy.nvim fetch origin
+git -C ~/.local/share/nvim/lazy/lazy.nvim fetch --tags origin
 ```
 
 - Pinned SHA: read `pinned_lazy_sha` from `~/.dotfiles/nvim/lua/config/lazy.lua`
-- Latest upstream: `git -C ~/.local/share/nvim/lazy/lazy.nvim rev-parse origin/stable`
-- If they differ, show new commits: `git -C ~/.local/share/nvim/lazy/lazy.nvim log --oneline <pinned>..origin/stable`
+- Latest upstream: `git -C ~/.local/share/nvim/lazy/lazy.nvim tag --sort=-version:refname | grep -v stable | head -1` to find the newest version tag, then `git rev-parse <tag>`
+- If the tag's SHA differs from the pin, show new commits: `git -C ~/.local/share/nvim/lazy/lazy.nvim log --oneline <pinned>..<latest-tag>`
+- If updating: replace `pinned_lazy_sha` with the new tag's SHA, and note the version tag in the commit message
 
 ### Antidote zsh plugins
 

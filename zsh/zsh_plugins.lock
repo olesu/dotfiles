@@ -3,8 +3,8 @@
 # After running `antidote bundle`, run `zsh_verify_plugins` to confirm
 # the installed versions match, then update this file if the changes
 # have been reviewed and approved.
-zsh-users/zsh-completions c160d09fddd28ceb3af5cf80e9253af80e450d96
-zsh-users/zsh-autosuggestions 0e810e5afa27acbd074398eefbe28d13005dbc15
-zsh-users/zsh-history-substring-search 87ce96b1862928d84b1afe7c173316614b30e301
-getantidote/use-omz 3961ccbbb7d6ec390cecad4bfda81608f9ab0994
-ohmyzsh/ohmyzsh f733dc340b2a1c5b2e61a4da7de790b2f557175f
+zsh-users/zsh-completions 6d21c2a1de9cb88479a0e67df492da3f3bbdb054
+zsh-users/zsh-autosuggestions 85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5
+zsh-users/zsh-history-substring-search 14c8d2e0ffaee98f2df9850b19944f32546fdea5
+getantidote/use-omz 317648f75d2643abcd7cf580062a8999b11473d7
+ohmyzsh/ohmyzsh d170d18746bb06db7b2fc97b67e281597a3fc152
