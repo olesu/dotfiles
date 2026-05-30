@@ -2,9 +2,6 @@
   "env": {
     "IS_SANDBOX": "true"
   },
-"enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
+"alwaysThinkingEnabled": true,
   "autoUpdatesChannel": "stable"
 }

@@ -1,4 +1,3 @@
 {
-  "claudeMdExcludes": ["**/claude/CLAUDE.md"],
-  "disabledMcpjsonServers": ["xcode"]
+  "claudeMdExcludes": ["**/claude/CLAUDE.md"]
 }
