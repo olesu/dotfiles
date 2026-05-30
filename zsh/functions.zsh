@@ -64,6 +64,27 @@ dev() {
     fi
 }
 
+# Verify antidote plugin SHAs against zsh_plugins.lock
+zsh_verify_plugins() {
+  local base="$HOME/Library/Caches/antidote"
+  local lockfile="${ZSH_CONFIG_DIR}/zsh_plugins.lock"
+  local ok=1
+  while IFS=' ' read -r repo sha rest; do
+    [[ "$repo" == \#* || -z "$repo" ]] && continue
+    local encoded="${repo/\//-SLASH-}"
+    local dir="$base/https-COLON--SLASH--SLASH-github.com-SLASH-${encoded}"
+    local actual
+    actual=$(git -C "$dir" log -1 --format="%H" 2>/dev/null)
+    if [[ "$actual" != "$sha" ]]; then
+      echo "MISMATCH: $repo"
+      echo "  expected: $sha"
+      echo "  installed: ${actual:-not found}"
+      ok=0
+    fi
+  done < "$lockfile"
+  [[ $ok -eq 1 ]] && echo "All plugins match lockfile ✓"
+}
+
 # Conventional commit helper
 commit() {
     local types=("feat" "fix" "docs" "style" "refactor" "perf" "test" "chore" "ci" "build")

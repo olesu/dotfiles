@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local pinned_lazy_sha = "85c7ff3711b730b4030d03144f6db6375044ae82"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -11,6 +12,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.fn.getchar()
     os.exit(1)
   end
+  vim.fn.system({ "git", "-C", lazypath, "checkout", pinned_lazy_sha })
 end
 vim.opt.rtp:prepend(lazypath)
 
