@@ -1,0 +1,28 @@
+[user]
+	name = Ole Kristian Sunde
+	email = ole.sunde@gmail.com
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = Monokai Extended
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	cm = commit
+	amend = commit --amend --no-edit
+	undo = reset HEAD~1 --mixed
+	unstage = reset HEAD --
+	last = log -1 HEAD --stat
+	lg = log --graph --oneline --decorate --all
+	contributors = shortlog --summary --numbered

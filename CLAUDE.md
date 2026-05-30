@@ -16,6 +16,8 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `claude/agents/` → `~/.claude/agents`
 - `claude/settings.json` → `~/.claude/settings.json`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
+- `git/gitconfig` → `~/.gitconfig`
+- `lazygit/config.yml` → `~/.config/lazygit/config.yml`
 - `launchd/*.plist` → `~/Library/LaunchAgents/` (symlink each, then load with `launchctl load`)
 
 ## Common Commands
