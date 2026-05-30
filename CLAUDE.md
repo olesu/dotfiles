@@ -16,6 +16,7 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `claude/agents/` → `~/.claude/agents`
 - `claude/settings.json` → `~/.claude/settings.json`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
+- `launchd/*.plist` → `~/Library/LaunchAgents/` (symlink each, then load with `launchctl load`)
 
 ## Common Commands
 
@@ -84,6 +85,27 @@ Used exclusively for Neovim's Python provider (`pynvim`). Path is hardcoded in `
 ## Git workflow
 
 This is a personal repo — pushing directly to `main` is the normal workflow. Use the `/ship` skill to stage, commit, and push in one step.
+
+### launchd (`launchd/`)
+
+Scheduled macOS agents loaded via `~/Library/LaunchAgents/`. Setup for each plist:
+
+```bash
+ln -sf ~/.dotfiles/launchd/<name>.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/<name>.plist
+```
+
+Current agents:
+- `com.olesu.update-claude-code.plist` — daily at 09:00, `brew upgrade claude-code`
+- `com.olesu.janitor.plist` — Mondays at 09:00, full brew maintenance via `scripts/janitor.sh`
+
+Logs land in `~/Library/Logs/`.
+
+### Scripts (`scripts/`)
+
+Shell scripts called by launchd agents or run manually.
+
+- `janitor.sh` — runs `brew update`, `brew upgrade`, `brew autoremove`, `brew cleanup`, `brew doctor`
 
 ## Conventions
 
