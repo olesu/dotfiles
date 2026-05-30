@@ -16,50 +16,36 @@ After all steps, print a short summary: what was upgraded (parse `brew upgrade` 
 
 ## Supply chain pin check
 
-After Homebrew, check whether the three pinned supply chain dependencies have upstream updates.
-
-### TPM (tmux plugin manager)
+After Homebrew, run:
 
 ```bash
-git -C ~/.tmux/plugins/tpm fetch origin
+~/.dotfiles/scripts/supply_chain_check.sh
 ```
 
-- Pinned SHA: read the 40-char hex from the `git checkout` line in `~/.dotfiles/tmux/tmux.conf`
-- Latest upstream: `git -C ~/.tmux/plugins/tpm rev-parse origin/master`
-- If they differ, show new commits: `git -C ~/.tmux/plugins/tpm log --oneline <pinned>..origin/master`
-
-### lazy.nvim
-
-```bash
-git -C ~/.local/share/nvim/lazy/lazy.nvim fetch --tags origin
+Each output line has the format:
+```
+<name> <pinned-sha> up-to-date
+<name> <pinned-sha> outdated <upstream-sha> <new-commit-count>
 ```
 
-- Pinned SHA: read `pinned_lazy_sha` from `~/.dotfiles/nvim/lua/config/lazy.lua`
-- Latest upstream: `git -C ~/.local/share/nvim/lazy/lazy.nvim tag --sort=-version:refname | grep -v stable | head -1` to find the newest version tag, then `git rev-parse <tag>`
-- If the tag's SHA differs from the pin, show new commits: `git -C ~/.local/share/nvim/lazy/lazy.nvim log --oneline <pinned>..<latest-tag>`
-- If updating: replace `pinned_lazy_sha` with the new tag's SHA, and note the version tag in the commit message
+- If all lines say `up-to-date`: report "All supply chain pins are current."
+- If any say `outdated`: for each, show the commit count and fetch the most recent commit message:
+  - TPM: `git -C ~/.tmux/plugins/tpm log -1 --format="%s" origin/master`
+  - lazy.nvim: `git -C ~/.local/share/nvim/lazy/lazy.nvim log -1 --format="%s" <upstream-sha>`
+  - Antidote plugins: `git -C ~/Library/Caches/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-<owner>-SLASH-<repo> log -1 --format="%s" origin/HEAD`
+    (encode the repo path by replacing `/` with `-SLASH-`)
 
-### Antidote zsh plugins
+Ask the user whether to update all, pick individually, or skip.
 
-For each `owner/repo sha` line in `~/.dotfiles/zsh/zsh_plugins.lock`:
+### Applying updates
 
-1. Encode the cache path: replace `/` with `-SLASH-`, prepend `https-COLON--SLASH--SLASH-github.com-SLASH-`
-   - e.g. `zsh-users/zsh-completions` → `~/Library/Caches/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions`
-2. `git -C <cache-dir> fetch origin`
-3. Compare locked SHA vs `git -C <cache-dir> rev-parse origin/HEAD`
-4. If they differ, show new commits: `git -C <cache-dir> log --oneline <locked>..origin/HEAD`
+**TPM** — replace the 40-char SHA in the `git checkout` line in `~/.dotfiles/tmux/tmux.conf`.
 
-### Reporting and updating
+**lazy.nvim** — replace the value of `pinned_lazy_sha` in `~/.dotfiles/nvim/lua/config/lazy.lua`. Note the version tag in the commit message.
 
-- If nothing is outdated: report "All supply chain pins are current."
-- If updates exist: list each with how many new commits and a one-line summary of the most recent.
-- Ask the user whether to update all, pick individually, or skip.
+**Antidote plugins** — for each outdated plugin, `git -C <cache-dir> pull --ff-only`, then update its SHA line in `~/.dotfiles/zsh/zsh_plugins.lock`. Note: this updates the cache on disk but `~/.zsh_plugins.zsh` (the compiled bundle) won't reflect the change until the user runs `antidote bundle` in a real shell — remind them.
 
-If updating:
-- **TPM**: replace the SHA in the `git checkout` line in `~/.dotfiles/tmux/tmux.conf`
-- **lazy.nvim**: replace the value of `pinned_lazy_sha` in `~/.dotfiles/nvim/lua/config/lazy.lua`
-- **Antidote plugins**: run `antidote bundle` to pull the new versions, then update each SHA line in `~/.dotfiles/zsh/zsh_plugins.lock` to `origin/HEAD` of that repo
-- Commit all changed files: `chore: bump supply chain pins`
+Commit all changed files: `chore: bump supply chain pins`
 
 ## Rules
 
