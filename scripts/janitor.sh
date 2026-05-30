@@ -1,8 +1,20 @@
 #!/opt/homebrew/bin/bash
 
 BREW=/opt/homebrew/bin/brew
+DOTFILES="$HOME/.dotfiles"
 
 echo "=== Janitor: $(date) ==="
+
+# Log the commit hash so the audit trail shows exactly which version ran.
+# Abort if the script has been modified on disk outside of git (local tampering guard).
+COMMIT=$(git -C "$DOTFILES" log -1 --format="%H" -- scripts/janitor.sh 2>/dev/null)
+echo "janitor.sh @ ${COMMIT:-unknown}"
+
+if ! git -C "$DOTFILES" diff --quiet HEAD -- scripts/janitor.sh 2>/dev/null; then
+    echo "ERROR: scripts/janitor.sh has uncommitted local changes. Aborting."
+    osascript -e 'display notification "Janitor aborted: scripts/janitor.sh has local modifications" with title "Janitor Security Check"'
+    exit 1
+fi
 
 printf '\n--- brew update ---\n'
 $BREW update
