@@ -2,6 +2,7 @@
   "env": {
     "IS_SANDBOX": "true"
   },
-"alwaysThinkingEnabled": true,
-  "autoUpdatesChannel": "stable"
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "stable",
+  "tui": "default"
 }

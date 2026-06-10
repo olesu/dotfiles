@@ -1,5 +1,6 @@
 export EDITOR=nvim
 export VISUAL=nvim
+export XDG_CONFIG_HOME="$HOME/.config"
 
 LESSOPEN="|$(brew --prefix)/lesspipe.sh %s"
 export LESSOPEN

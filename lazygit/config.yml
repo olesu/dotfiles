@@ -1,4 +1,4 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --color-only
+  pagers:
+    - colorArg: always
+      pager: delta --paging never --true-color always --no-gitconfig --syntax-theme "Monokai Extended"
