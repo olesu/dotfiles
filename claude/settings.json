@@ -2,12 +2,12 @@
   "env": {
     "IS_SANDBOX": "true"
   },
-  "alwaysThinkingEnabled": true,
-  "autoUpdatesChannel": "stable",
-  "tui": "default",
-  "model": "opus",
+  "model": "sonnet[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/scripts/statusline.sh"
-  }
+  },
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "stable",
+  "tui": "default"
 }
