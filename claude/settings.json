@@ -4,5 +4,10 @@
   },
   "alwaysThinkingEnabled": true,
   "autoUpdatesChannel": "stable",
-  "tui": "default"
+  "tui": "default",
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/statusline.sh"
+  }
 }
