@@ -1,6 +1,6 @@
-Trigger this skill when the user mentions: plan-haiku, haiku plan, plan then haiku, plan then execute, sonnet plan haiku execute.
+Trigger this skill when the user mentions: swift-tech-lead, plan-haiku, haiku plan, plan then haiku, plan then execute, sonnet plan haiku execute.
 
-Implement a task using the Sonnet-plans-then-Haiku-executes workflow: a Sonnet planner reads the real source files and produces a Haiku-grade spec; Haiku then follows it mechanically with no judgment calls.
+Implement a task using the Sonnet-plans-then-Haiku-executes workflow: a Sonnet planner reads the real source files and produces a Haiku-grade spec; the swift-code-monkey agent then follows it mechanically with no judgment calls.
 
 ## When to use this pattern
 
@@ -51,22 +51,22 @@ Present the plan to the user. Then evaluate it yourself against the Haiku-safe c
 
 If any item is unchecked, flag it and ask the user whether to refine the plan first or proceed anyway.
 
-Ask the user: **"Plan looks good — proceed with Haiku?"** (or flag issues first). Do not launch Haiku without explicit confirmation.
+Ask the user: **"Plan looks good — proceed with swift-code-monkey?"** (or flag issues first). Do not launch the executor without explicit confirmation.
 
-## Step 4 — Spawn Haiku executor
+## Step 4 — Spawn swift-code-monkey executor
 
-Once confirmed, spawn a Haiku agent (`model: "haiku"`, `isolation: "worktree"`) with a prompt that:
+Once confirmed, spawn the executor (`subagent_type: "swift-code-monkey"`, `isolation: "worktree"`) with a prompt that:
 
 1. States the file guard at the top: "You may ONLY touch these files: [list]. Do NOT read or modify any other file. Do NOT create new files."
 2. Includes the complete plan as numbered steps with exact code blocks
 3. Includes a build step after each logical group
 4. Ends with: run all tests (`mcp__xcode__RunAllTests`), confirm they pass, commit, update issue frontmatter `status: open` → `status: done`, update `docs/issues/README.md`
 
-Run Haiku in the background. Report when it completes.
+Run swift-code-monkey in the background. Report when it completes.
 
 ## Step 5 — Verify
 
-When Haiku completes, check:
+When swift-code-monkey completes, check:
 - `git log --oneline -3` — commits look right
 - `git diff HEAD~N HEAD --name-only` — only the expected files changed
 
@@ -75,6 +75,6 @@ Report the result. If unexpected files were touched, flag it immediately.
 ## Rules
 
 - Never skip Step 3 (user review). The plan gate is the whole point of this skill.
-- Never pass a plan with "or" choices to Haiku — resolve them first.
-- If Haiku touches files outside the stated guard, report it as a failure even if tests pass.
+- Never pass a plan with "or" choices to swift-code-monkey — resolve them first.
+- If swift-code-monkey touches files outside the stated guard, report it as a failure even if tests pass.
 - This skill is for implementation tasks only. For debugging or exploratory work, use Sonnet directly.
