@@ -1,2 +1,2 @@
 #!/bin/sh
-exec env -u GITHUB_TOKEN PATH=/opt/homebrew/bin:/usr/bin:/bin /opt/homebrew/bin/op plugin run -- gh "$@"
+exec env -u GITHUB_TOKEN SHELL=/bin/zsh PATH=/opt/homebrew/bin:/usr/bin:/bin /opt/homebrew/bin/op plugin run -- gh "$@"
