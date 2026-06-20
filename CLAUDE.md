@@ -20,6 +20,7 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `git/gitconfig` → `~/.gitconfig`
 - `lazygit/config.yml` → `~/.config/lazygit/config.yml`
 - `launchd/*.plist` → `~/Library/LaunchAgents/` (symlink each, then load with `launchctl load`)
+- `iterm2/` → iTerm2 reads this via *Settings → General → Preferences → Load preferences from a custom folder* (set to `~/.dotfiles/iterm2/`). Saves as XML plist — human-readable and diffable in git.
 
 ## Common Commands
 

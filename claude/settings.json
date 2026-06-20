@@ -9,5 +9,17 @@
   },
   "alwaysThinkingEnabled": true,
   "autoUpdatesChannel": "stable",
-  "tui": "default"
+  "tui": "default",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "it2attention once"
+          }
+        ]
+      }
+    ]
+  }
 }
