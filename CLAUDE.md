@@ -23,7 +23,6 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `launchd/*.plist` → `~/Library/LaunchAgents/` (symlink each, then load with `launchctl load`)
 - `iterm2/` → iTerm2 reads this via *Settings → General → Preferences → Load preferences from a custom folder* (set to `~/.dotfiles/iterm2/`). Saves as XML plist — human-readable and diffable in git.
 - `gitmux/gitmux.conf` → `~/.gitmux.conf` (required by the Catppuccin tmux gitmux module; minimal file that uses all gitmux defaults)
-- `bin/gh` → `~/.local/bin/gh` (wrapper script — see `bin/` below)
 
 ## Common Commands
 
@@ -114,12 +113,6 @@ Shell scripts called by launchd agents or run manually.
 
 - `janitor.sh` — runs `brew update`, `brew upgrade`, `brew autoremove`, `brew cleanup`, `brew doctor`
 - `supply_chain_check.sh` — verifies integrity of supply chain pins
-
-### Bin wrappers (`bin/`)
-
-Personal binary wrappers symlinked into `~/.local/bin/` (which is in `$PATH` ahead of Homebrew).
-
-- `gh` — wraps `/opt/homebrew/bin/gh`: unsets `GITHUB_TOKEN` before calling `op plugin run`, so Claude Code's injected token (which is often stale) doesn't override 1Password credentials. Run `/fix-gh-auth` to recreate the symlink on a new machine.
 
 ## Conventions
 
