@@ -34,15 +34,6 @@ extract() {
     fi
 }
 
-# Git commit and push in one command
-gcp() {
-    if [ -z "$1" ]; then
-        echo "Usage: gcp <commit-message>"
-        return 1
-    fi
-    git add -A && git commit -m "$1" && git push
-}
-
 # Smart project directory jumper with venv activation
 dev() {
     local project_dir="${1:-.}"

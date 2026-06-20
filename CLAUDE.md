@@ -58,7 +58,7 @@ Modular config sourced by `zshrc.zsh`:
 
 - `env.zsh` — environment variables (FZF, Python venv path, iTerm integration)
 - `aliases.zsh` — minimal aliases (`bat` as `cat`, `cless` as `less`)
-- `functions.zsh` — custom functions: `mkcd`, `extract`, `gcp`, `dev`, `commit`
+- `functions.zsh` — custom functions: `mkcd`, `extract`, `dev`, `commit`
 - `plugins.zsh` — Antidote loader
 - `zsh_plugins.txt` — Antidote plugin manifest (Oh My Zsh plugins + zsh-users plugins)
 

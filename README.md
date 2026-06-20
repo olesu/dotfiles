@@ -94,7 +94,7 @@ brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote star
 
 ### Zsh
 
-- **Custom functions**: `mkcd`, `extract`, `gcp`, `dev`, `commit`
+- **Custom functions**: `mkcd`, `extract`, `dev`, `commit`
 - **Git aliases**: `git st`, `git amend`, `git undo`, `git lg`
 - **Starship prompt** - Beautiful Catppuccin theme with git metrics
 - **Auto-suggestions** - Command completion as you type
