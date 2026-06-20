@@ -5,21 +5,16 @@ Stage all modified tracked files, generate a commit message from the diff, commi
 ## Steps
 
 1. **Build and test check** — if the project has an Xcode workspace (check CLAUDE.md or look for `.xcodeproj`/`.xcworkspace`), run `mcp__xcode__BuildProject` then `mcp__xcode__RunAllTests` (get the tabIdentifier first via `mcp__xcode__XcodeListWindows`). If either fails, **stop immediately** and report the errors — do not stage or commit anything. For non-Xcode projects, run the appropriate build/typecheck and test command instead (e.g. `tsc --noEmit && npm test`, `cargo test`, `go test ./...`).
-2. Run `git status` and `git diff` in parallel to understand what will be committed.
+2. Run `bash ~/.dotfiles/scripts/git-snapshot.sh` to get current status, diff, and recent log in one shot.
 3. Check the current branch — if it is `main`, check CLAUDE.md for an explicit note permitting pushes to main. If found, proceed. If not, warn the user and ask for confirmation before continuing.
-4. Stage tracked changes: `git add -u`
-5. Draft a commit message from the diff following this repo's style (look at recent `git log --oneline -5` for conventions).
-6. Commit with the Co-Authored-By trailer:
+4. Draft a commit message from the diff following this repo's style (Conventional Commits: `<type>(<scope>): <message>`). Append the Co-Authored-By trailer:
 ```
-git commit -m "$(cat <<'EOF'
-<message>
+<type>(<scope>): <message>
 
 Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
-EOF
-)"
 ```
-7. Push: `git push`
-8. Report the pushed commit hash and message.
+5. Run `bash ~/.dotfiles/scripts/git-commit-push.sh "<message>"` to stage, commit, and push.
+6. Report the pushed commit hash and message.
 
 ## Rules
 

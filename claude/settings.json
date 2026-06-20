@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(bash ~/.dotfiles/scripts/git-snapshot.sh*)",
+      "Bash(bash ~/.dotfiles/scripts/git-commit-push.sh*)"
+    ]
+  },
   "env": {
     "IS_SANDBOX": "true"
   },
