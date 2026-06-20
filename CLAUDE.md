@@ -14,6 +14,7 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `zsh/zshrc.zsh` sourced from `~/.zshrc`
 - `claude/commands/` → `~/.claude/commands`
 - `claude/agents/` → `~/.claude/agents`
+- `claude/scripts/statusline.sh` → `~/.claude/scripts/statusline.sh`
 - `claude/settings.json` → `~/.claude/settings.json`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
 - `git/gitconfig` → `~/.gitconfig`
@@ -70,7 +71,7 @@ Built on **LazyVim** framework. `init.lua` bootstraps `lua/config/lazy.lua`.
 - `keymaps.lua` — minimal additions (jk → ESC)
 - `autocmds.lua` — auto-detects project venvs for Python files
 
-**Plugin overrides** (`lua/plugins/`): Each file overrides or adds a single plugin — harpoon, lazygit, lualine (with Copilot status), vim-tmux-navigator, python (Pyright), colorscheme (Catppuccin Mocha), neotest (Vitest adapter), ui (indent-blankline).
+**Plugin overrides** (`lua/plugins/`): One file per plugin — each overrides or extends a single LazyVim plugin spec. Check `ls lua/plugins/` for the current list.
 
 ### Tmux (`tmux/`)
 
@@ -108,10 +109,11 @@ Logs land in `~/Library/Logs/`.
 Shell scripts called by launchd agents or run manually.
 
 - `janitor.sh` — runs `brew update`, `brew upgrade`, `brew autoremove`, `brew cleanup`, `brew doctor`
+- `supply_chain_check.sh` — verifies integrity of supply chain pins
 
 ## Conventions
 
 - **Conventional Commits**: `<type>(<scope>): <message>` — scopes match directory names (zsh, nvim, tmux, starship)
 - **Neovim plugins**: add new plugin specs as individual files in `lua/plugins/`
 - **Zsh additions**: new shell functions go in `functions.zsh`, new aliases in `aliases.zsh`
-- The `lazy-lock.json` at repo root is the Neovim plugin lockfile — commit updates after `:Lazy sync`
+- The `nvim/lazy-lock.json` is the Neovim plugin lockfile — commit updates after `:Lazy sync`
