@@ -81,3 +81,6 @@ printf '%b%b%b%b%b\n' \
   "$loc_colored" "$sep" \
   "$model_segment" "$sep" \
   "$ctx_segment"
+
+# Side-effect: persist state for the tmux status pill (read by tmux_status_claude.sh)
+printf '%s|%d|%s|%s' "$model" "$ctx_pct" "$ctx_human" "$win_human" > /tmp/claude_tmux_status

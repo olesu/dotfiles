@@ -17,6 +17,10 @@
           {
             "type": "command",
             "command": "it2attention once"
+          },
+          {
+            "type": "command",
+            "command": "rm -f /tmp/claude_tmux_status"
           }
         ]
       }

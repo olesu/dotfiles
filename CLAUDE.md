@@ -15,6 +15,7 @@ Personal macOS dotfiles managed via manual symlinks. No install scripts — setu
 - `claude/commands/` → `~/.claude/commands`
 - `claude/agents/` → `~/.claude/agents`
 - `claude/scripts/statusline.sh` → `~/.claude/scripts/statusline.sh`
+- `claude/scripts/tmux_status_claude.sh` → `~/.claude/scripts/tmux_status_claude.sh`
 - `claude/settings.json` → `~/.claude/settings.json`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
 - `git/gitconfig` → `~/.gitconfig`
