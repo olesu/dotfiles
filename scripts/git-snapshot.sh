@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo "=== branch ==="
+git branch --show-current
+
+echo ""
 echo "=== git status ==="
 git status
 
