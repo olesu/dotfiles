@@ -18,6 +18,7 @@ brew "eza"              # Modern ls replacement
 brew "antidote"         # Zsh plugin manager
 brew "starship"         # Cross-shell prompt
 brew "tmux"             # Terminal multiplexer
+brew "gitmux"           # Git status in tmux status bar
 brew "neovim"           # Modern vim
 
 # Ruby version manager
