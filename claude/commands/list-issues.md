@@ -6,7 +6,7 @@ Fetch open GitHub issues for the current repo, let the user filter interactively
 
 ## Steps
 
-1. **Detect the repo** — run `gh repo view --json nameWithOwner -q .nameWithOwner` to confirm you're in a GitHub repo. If not, tell the user and stop.
+1. **Detect the repo** — run `bash ~/.dotfiles/scripts/gh-repo-name.sh` to confirm you're in a GitHub repo. If it exits non-zero, tell the user and stop.
 
 2. **Fetch open issues** — run:
    ```
