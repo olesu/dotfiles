@@ -1,4 +1,4 @@
-Trigger this skill when the user mentions: view issue, show issue, open issue, read issue, fetch issue, display issue, gh issue view, issue details, or references an issue number to read or display.
+Trigger this skill when the user mentions: view issue, show issue, open issue, read issue, fetch issue, display issue, gh issue view, issue details, dependency issue, referenced issue, look up issue, check issue, or references an issue number to read or display.
 
 # View Issue
 

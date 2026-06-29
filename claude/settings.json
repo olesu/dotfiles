@@ -1,8 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(bash ~/.dotfiles/scripts/git-snapshot.sh*)",
-      "Bash(bash ~/.dotfiles/scripts/git-commit-push.sh*)"
+      "Bash(bash ~/.dotfiles/scripts/*)"
     ]
   },
   "env": {
