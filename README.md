@@ -1,104 +1,67 @@
 # Dotfiles
 
-Personal macOS workstation configuration for Neovim, Tmux, and Zsh.
-
-## Prerequisites
-
-Install all required tools using the Brewfile:
-
-```bash
-cd ~/.dotfiles
-brew bundle
-```
-
-Or install individually:
-
-```bash
-brew install git-delta jq yq zoxide lazygit fzf ripgrep fd bat eza antidote starship tmux neovim
-```
+Personal macOS workstation configuration for Neovim, Tmux, Zsh, and Claude Code.
 
 ## Setup
 
-1. Clone and enter the repository:
+1. Clone the repository:
 
    ```bash
    git clone <your-repo-url> ~/.dotfiles
    cd ~/.dotfiles
    ```
 
-2. Create Python virtual environment with pynvim:
+2. Install Homebrew dependencies:
 
    ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   pip install --upgrade pip pynvim
+   brew bundle
    ```
 
-3. Create symlinks:
+3. Run the install script:
 
    ```bash
-   ln -sf ~/.dotfiles/nvim ~/.config/nvim
-   ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-   ln -sf ~/.dotfiles/starship/starship.toml ~/.config/starship.toml
+   bash install.sh
    ```
 
-4. Configure Zsh by adding this to `~/.zshrc`:
+4. Add to `~/.zshrc`:
 
    ```bash
    export ZSH_CONFIG_DIR="${HOME}/.dotfiles/zsh"
    source "${ZSH_CONFIG_DIR}/zshrc.zsh"
    ```
 
-5. Reload shell:
+5. Load launchd agents:
 
    ```bash
-   exec zsh
+   launchctl load ~/Library/LaunchAgents/com.olesu.janitor.plist
+   launchctl load ~/Library/LaunchAgents/com.olesu.update-claude-code.plist
    ```
+
+6. Create Python venv for Neovim:
+
+   ```bash
+   python3 -m venv ~/.dotfiles/.venv
+   source ~/.dotfiles/.venv/bin/activate
+   pip install pynvim
+   ```
+
+7. Point iTerm2 at `~/.dotfiles/iterm2/` via *Settings → General → Preferences → Load preferences from a custom folder*.
 
 ## What's Inside
 
-- **nvim/** - Neovim config (LazyVim) symlinked to `~/.config/nvim`
-- **tmux/** - Tmux config symlinked to `~/.tmux.conf`
-- **starship/** - Starship prompt config symlinked to `~/.config/starship.toml`
-- **zsh/** - Zsh configuration with Antidote plugin manager
-- **.venv/** - Python virtual environment for Neovim (has pynvim)
-- **Brewfile** - Homebrew dependencies for reproducible setup
-
-## Features
-
-### Modern CLI Tools
-
-- **zoxide** - Smart `cd` with frecency-based directory jumping (`z` command)
-- **lazygit** - Beautiful terminal UI for git operations
-- **delta** - Syntax-highlighted diffs with side-by-side view
-- **fzf** - Fuzzy finder for files, history, and more
-- **eza** - Modern `ls` with icons and git integration
-- **bat** - `cat` with syntax highlighting
-
-### Neovim (LazyVim)
-
-- **GitHub Copilot** - AI pair programming
-- **Harpoon** - Quick file navigation (`<leader>ha` to mark, `<leader>1-4` to jump)
-- **LazyGit integration** - Press `<leader>gg` for git UI
-- **Telescope** - Fuzzy finder with preview
-- **LSP** - Language servers via Mason
-- **Custom snippets** - For Python, Lua, Markdown
-
-### Tmux
-
-- **Prefix**: `Ctrl-a` (not `Ctrl-b`)
-- **Vim integration** - Seamless pane navigation with `Ctrl-hjkl`
-- **Session management** - Fuzzy session switcher (`prefix + s`)
-- **Popups**: `prefix + g` (lazygit), `prefix + T` (scratch terminal), `prefix + P` (shell)
-- **Plugins**: resurrect/continuum (session persistence), yank, open, copycat
-
-### Zsh
-
-- **Custom functions**: `mkcd`, `extract`, `dev`, `commit`
-- **Git aliases**: `git st`, `git amend`, `git undo`, `git lg`
-- **Starship prompt** - Beautiful Catppuccin theme with git metrics
-- **Auto-suggestions** - Command completion as you type
-- **Syntax highlighting** - Via chroma/colorize plugin
+- **nvim/** — Neovim config (LazyVim) symlinked to `~/.config/nvim`
+- **tmux/** — Tmux config symlinked to `~/.tmux.conf`
+- **starship/** — Starship prompt config symlinked to `~/.config/starship.toml`
+- **zsh/** — Zsh configuration with Antidote plugin manager
+- **claude/** — Claude Code skills, settings, scripts, and CLAUDE.md
+- **git/** — Git config symlinked to `~/.gitconfig`
+- **lazygit/** — Lazygit config symlinked to `~/.config/lazygit/config.yml`
+- **scripts/** — Shell scripts for launchd agents and Claude Code skills
+- **bin/** — Personal wrappers symlinked into `~/.local/bin/`
+- **launchd/** — macOS scheduled agents (janitor, Claude Code updater)
+- **iterm2/** — iTerm2 preferences (loaded directly by iTerm2)
+- **.venv/** — Python virtual environment for Neovim's pynvim provider
+- **Brewfile** — Homebrew dependencies
 
 ## Troubleshooting
 
@@ -123,19 +86,5 @@ prefix + r
 ### Zsh: Slow startup
 
 ```bash
-# Profile zsh startup
 zsh -i -c exit
-
-# Check antidote bundle time
-time antidote bundle
-```
-
-### Delta: Not showing side-by-side
-
-```bash
-# Check terminal width (needs ≥120 chars)
-tmux display-message -p '#{pane_width}x#{pane_height}'
-
-# Verify git pager config
-git config core.pager
 ```
