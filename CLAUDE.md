@@ -4,26 +4,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Personal macOS dotfiles managed via manual symlinks. No install scripts — setup is documented in README.md and done manually.
+Personal macOS dotfiles. Run `bash install.sh` to create all symlinks. iTerm2, zsh sourcing, and launchd loading are manual (instructions printed by the script).
 
-**Symlink targets:**
+**Symlink targets (managed by `install.sh`):**
 
 - `nvim/` → `~/.config/nvim`
 - `tmux/tmux.conf` → `~/.tmux.conf`
 - `starship/starship.toml` → `~/.config/starship.toml`
-- `zsh/zshrc.zsh` sourced from `~/.zshrc`
-- `claude/commands/` → `~/.claude/commands`
-- `claude/agents/` → `~/.claude/agents`
-- `claude/scripts/statusline.sh` → `~/.claude/scripts/statusline.sh`
-- `claude/scripts/tmux_status_claude.sh` → `~/.claude/scripts/tmux_status_claude.sh`
-- `claude/settings.json` → `~/.claude/settings.json`
-- `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
+- `gitmux/gitmux.conf` → `~/.gitmux.conf`
 - `git/gitconfig` → `~/.gitconfig`
 - `lazygit/config.yml` → `~/.config/lazygit/config.yml`
-- `launchd/*.plist` → `~/Library/LaunchAgents/` (symlink each, then load with `launchctl load`)
-- `iterm2/` → iTerm2 reads this via *Settings → General → Preferences → Load preferences from a custom folder* (set to `~/.dotfiles/iterm2/`). Saves as XML plist — human-readable and diffable in git.
-- `gitmux/gitmux.conf` → `~/.gitmux.conf` (required by the Catppuccin tmux gitmux module; minimal file that uses all gitmux defaults)
+- `claude/settings.json` → `~/.claude/settings.json`
+- `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
+- `claude/scripts/*.sh` → `~/.claude/scripts/*.sh` (individual file symlinks)
+- `claude/commands/*.md` → `~/.claude/commands/*.md` (individual file symlinks)
+- `claude/agents/*.md` → `~/.claude/agents/*.md` (individual file symlinks)
+- `launchd/*.plist` → `~/Library/LaunchAgents/*.plist`
 - `bin/gh` → `~/.local/bin/gh` (wrapper script — see `bin/` below)
+- `zsh/zshrc.zsh` — sourced from `~/.zshrc` (not a symlink; added manually)
+- `iterm2/` — iTerm2 reads via *Settings → General → Preferences → Load preferences from a custom folder*
 
 ## Common Commands
 
