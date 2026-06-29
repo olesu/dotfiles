@@ -119,6 +119,33 @@ Shell scripts called by launchd agents or run manually.
 - `gh-issue-list.sh` — fetches open issues as JSON (`--limit 100`); accepts optional `--limit N`
 - `gh-issue-view.sh <number>` — fetches a single issue as JSON including comments
 
+### Claude skills (`claude/commands/`)
+
+Slash commands available in any Claude Code session. Symlinked to `~/.claude/commands/`.
+
+**GitHub issue workflow:**
+- `/list-issues` — fetch open issues, filter by label/milestone/assignee, display sorted table
+- `/view-issue <number>` — fetch and render a single issue with comments
+- `/kickoff <number>` — structured planning session: discuss approach, build test list, post plan as issue comment
+
+**Development workflow:**
+- `/ship` — stage, commit (Conventional Commits), and push in one step
+- `/tdd` — red-green-refactor loop guide
+- `/code-review` — review current diff for bugs and cleanup opportunities
+
+**Project setup:**
+- `/xcode-setup` — verify Xcode MCP is wired up correctly
+- `/playwright-setup` — add Playwright e2e testing to a native project
+- `/swift-lsp` — configure SourceKit-LSP for Swift projects
+- `/swift-tech-lead` — plan then hand off to Haiku for Swift implementation
+
+**Dotfiles maintenance:**
+- `/janitor` — run brew maintenance and system cleanup
+- `/skill-authoring` — scaffold a new skill file with correct format and triggers
+- `/extract-to-script` — move inline bash logic into `scripts/`
+- `/import-claude-config` — import settings from `~/.claude` into dotfiles
+- `/scope-plugins` — move a Claude plugin from global to project scope
+
 ### Bin wrappers (`bin/`)
 
 Personal binary wrappers symlinked into `~/.local/bin/` (which is in `$PATH` ahead of Homebrew).
