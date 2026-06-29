@@ -114,6 +114,10 @@ Shell scripts called by launchd agents or run manually.
 
 - `janitor.sh` — runs `brew update`, `brew upgrade`, `brew autoremove`, `brew cleanup`, `brew doctor`
 - `supply_chain_check.sh` — verifies integrity of supply chain pins
+- `lib.sh` — shared helpers; source this in any script that needs `_gh()` (calls `$HOME/.local/bin/gh` directly to bypass PATH ordering issues in Claude Code's bash environment)
+- `gh-repo-name.sh` — prints `owner/repo` for the current directory; exits non-zero with a message if not in a GitHub repo
+- `gh-issue-list.sh` — fetches open issues as JSON (`--limit 100`); accepts optional `--limit N`
+- `gh-issue-view.sh <number>` — fetches a single issue as JSON including comments
 
 ### Bin wrappers (`bin/`)
 
