@@ -10,7 +10,7 @@ Fetch open GitHub issues for the current repo, let the user filter interactively
 
 2. **Fetch open issues** — run:
    ```
-   gh issue list --state open --limit 100 --json number,title,labels,milestone,createdAt,updatedAt,comments,assignees
+   bash ~/.dotfiles/scripts/gh-issue-list.sh
    ```
 
 3. **Ask the user for filters** (present all at once, default to "no filter" for each):
