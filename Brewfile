@@ -26,3 +26,4 @@ brew "ruby-build"       # rbenv plugin to install Ruby versions
 brew "gh"               # GitHub CLI
 brew "node"             # Node.js for LSP servers
 brew "awscli"           # AWS CLI
+brew "aws-sam-cli"      # AWS SAM CLI
