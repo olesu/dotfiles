@@ -27,3 +27,5 @@ brew "gh"               # GitHub CLI
 brew "node"             # Node.js for LSP servers
 brew "awscli"           # AWS CLI
 brew "aws-sam-cli"      # AWS SAM CLI
+brew "colima"           # Docker Desktop alternative
+brew "docker"           # Docker CLI (Colima provides the daemon)
