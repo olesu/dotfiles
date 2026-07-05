@@ -1,9 +1,6 @@
 # Dotfiles Brewfile
 # Install all dependencies with: brew bundle
 
-# Taps
-tap "homebrew/bundle"
-
 # CLI Tools
 brew "git-delta"        # Syntax-highlighted git diffs
 brew "zoxide"           # Smart directory jumper
@@ -28,3 +25,4 @@ brew "ruby-build"       # rbenv plugin to install Ruby versions
 # Optional but recommended
 brew "gh"               # GitHub CLI
 brew "node"             # Node.js for LSP servers
+brew "awscli"           # AWS CLI

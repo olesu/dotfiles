@@ -1,20 +1,12 @@
 {
+  "env": {
+    "IS_SANDBOX": "true"
+  },
   "permissions": {
     "allow": [
       "Bash(bash ~/.dotfiles/scripts/*)"
     ]
   },
-  "env": {
-    "IS_SANDBOX": "true"
-  },
-  "model": "sonnet[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/scripts/statusline.sh"
-  },
-  "alwaysThinkingEnabled": true,
-  "autoUpdatesChannel": "stable",
-  "tui": "default",
   "hooks": {
     "Stop": [
       {
@@ -30,5 +22,12 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/statusline.sh"
+  },
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "stable",
+  "tui": "default"
 }
