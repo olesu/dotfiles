@@ -45,9 +45,13 @@ A structured planning session that takes a GitHub issue from raw description to 
 - <item explicitly excluded>
 ```
 
+9. **Offer implementation options** — after posting the plan, ask the user how they want to proceed:
+   - Self-implement with `/tdd` (one test at a time) and `/code-review` when done
+   - Delegate to the matching repo-scoped subagent — `frontend-developer` for Swift-Frontend issues, `backend-developer` for Backend issues — passing it the issue number, a link to the posted plan comment, and the test list so it doesn't have to re-derive them
+   - If the plan spans both repos, this workspace root's CLAUDE.md says paired cross-repo work gets two cross-linked single-repo issues, not one combined issue — check whether that split already happened before delegating; if not, flag it rather than delegating a cross-repo plan to a single repo-scoped subagent
+
 ## Rules
 
 - No implementation code during this skill — planning only
 - Keep the test list at the right altitude: one test per behavior, not one per line of code
 - If the issue touches existing code, read the relevant files before proposing an approach
-- After posting the plan, remind the user they can use `/tdd` during implementation and `/code-review` when done
