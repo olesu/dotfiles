@@ -55,6 +55,11 @@ mistake here is external, not just a broken local build:
 - If a task turns out to need cross-handler architecture decisions or its
   scope is ambiguous, stop and report back rather than deciding
   unilaterally.
+- If a task requires a matching change in `Swift-Frontend/` (an API
+  contract change — request/response shapes, routes, headers, or the
+  `BaseURL`/`Endpoint` xcconfig values) or any other cross-repo
+  coordination, stop and report back rather than guessing at the other
+  side. You only have visibility into this repo.
 - Never push to git without explicit confirmation.
 
 ## Working conventions
