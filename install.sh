@@ -41,13 +41,12 @@ LINKS=(
   "claude/commands/ship.md                $HOME/.claude/commands/ship.md"
   "claude/commands/skill-authoring.md     $HOME/.claude/commands/skill-authoring.md"
   "claude/commands/swift-lsp.md           $HOME/.claude/commands/swift-lsp.md"
-  "claude/commands/swift-tech-lead.md     $HOME/.claude/commands/swift-tech-lead.md"
   "claude/commands/tdd.md                 $HOME/.claude/commands/tdd.md"
   "claude/commands/view-issue.md          $HOME/.claude/commands/view-issue.md"
   "claude/commands/xcode-setup.md         $HOME/.claude/commands/xcode-setup.md"
 
   # Claude Code — agents
-  "claude/agents/swift-code-monkey.md  $HOME/.claude/agents/swift-code-monkey.md"
+  "claude/agents/frontend-developer.md    $HOME/.claude/agents/frontend-developer.md"
 
   # Bin wrappers
   "bin/gh                               $HOME/.local/bin/gh"

@@ -136,7 +136,6 @@ Slash commands available in any Claude Code session. Symlinked to `~/.claude/com
 - `/xcode-setup` — verify Xcode MCP is wired up correctly
 - `/playwright-setup` — add Playwright e2e testing to a native project
 - `/swift-lsp` — configure SourceKit-LSP for Swift projects
-- `/swift-tech-lead` — plan then hand off to Haiku for Swift implementation
 
 **Dotfiles maintenance:**
 - `/janitor` — run brew maintenance and system cleanup
