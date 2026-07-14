@@ -6,9 +6,12 @@ Fetch open GitHub issues for the current repo, let the user filter interactively
 
 ## Steps
 
-1. **Detect the repo** — run `bash ~/.dotfiles/scripts/gh-repo-name.sh` to confirm you're in a GitHub repo. If it exits non-zero, tell the user and stop.
+1. **Detect the repo** — run `bash ~/.dotfiles/scripts/gh-repo-name.sh`.
+   - Exit 0: one `<path>\t<owner/repo>` line. If `<path>` is `.`, cwd is already the repo. Otherwise every script call below must run from `<path>` (e.g. `cd <path> && bash ~/.dotfiles/scripts/gh-issue-list.sh`).
+   - Exit 2: multiple `<path>\t<owner/repo>` candidates (cwd is a multi-repo workspace root, not a repo itself). Ask the user which repo they mean, then treat their choice like the exit-0 case above.
+   - Exit 1 or other failure: tell the user no GitHub repository was found here or in any subdirectory, and stop.
 
-2. **Fetch open issues** — run:
+2. **Fetch open issues** — run (from the repo path resolved above):
    ```
    bash ~/.dotfiles/scripts/gh-issue-list.sh
    ```
