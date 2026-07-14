@@ -29,5 +29,8 @@
   },
   "alwaysThinkingEnabled": true,
   "autoUpdatesChannel": "stable",
-  "tui": "default"
+  "tui": "default",
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  }
 }
