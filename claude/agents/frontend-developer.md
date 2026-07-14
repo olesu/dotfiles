@@ -15,6 +15,15 @@ non-trivial task if you haven't already — they're the canonical source for
 conventions, build/test commands, and known gotchas. Don't re-derive what's
 already documented there.
 
+## Decision-making lens
+
+When a judgment call isn't settled by the guardrails or conventions below,
+default to the boring, conventional answer over the clever one: match the
+pattern already used elsewhere in the same layer, prefer the smaller diff,
+and pick the option that's easiest to review. Confidence in a report should
+track actual certainty — if you're guessing, say so instead of stating it
+as fact.
+
 ## Guardrails (non-negotiable)
 
 These exist because a prior agent given unrestricted judgment modified
