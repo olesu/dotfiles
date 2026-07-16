@@ -23,11 +23,15 @@ A structured planning session that takes a GitHub issue from raw description to 
    - Edge cases and constraints that matter
    - What is explicitly out of scope
 
-6. **Build the test list** — produce a numbered list of tests in the order they'd be written (TDD order: simplest behavior first). Each entry is one sentence describing what the test verifies. No code yet.
+6. **Identify contract impact** — check whether the change touches the API contract: request/response shapes, routes, headers, or the `BaseURL`/`Endpoint` xcconfig values. This applies even to a same-repo change if it shifts a shape the other repo depends on. If it does:
+   - Read the current shape on both sides before finalizing the approach — the Backend handler's request/response types (and its `template.yaml` route), and the Swift-Frontend gateway/mapper that consumes them.
+   - Write an explicit old-shape → new-shape diff. This is what step 8 posts to both linked issues — don't leave it implicit in the prose summary.
 
-7. **Confirm** — present the approach and test list. Don't post to GitHub until the user is happy with it.
+7. **Build the test list** — produce a numbered list of tests in the order they'd be written (TDD order: simplest behavior first). Each entry is one sentence describing what the test verifies. No code yet.
 
-8. **Write the plan to the issue** — post a comment via `gh issue comment <number> --body "$(cat <<'EOF' ... EOF)"`. Use this format:
+8. **Confirm** — present the approach, contract diff (if any), and test list. Don't post to GitHub until the user is happy with it.
+
+9. **Write the plan to the issue** — post a comment via `gh issue comment <number> --body "$(cat <<'EOF' ... EOF)"`. Use this format:
 
 ```
 ## Plan
@@ -37,6 +41,10 @@ A structured planning session that takes a GitHub issue from raw description to 
 ## Decisions
 - <decision or constraint>
 
+## Contract
+<old shape> → <new shape>
+(omit this section entirely if step 6 found no contract impact)
+
 ## Test list
 1. <behavior the test verifies>
 2. ...
@@ -45,13 +53,14 @@ A structured planning session that takes a GitHub issue from raw description to 
 - <item explicitly excluded>
 ```
 
-9. **Offer implementation options** — after posting the plan, ask the user how they want to proceed:
-   - Self-implement with `/tdd` (one test at a time) and `/code-review` when done
-   - Delegate to the matching repo-scoped subagent — `frontend-developer` for Swift-Frontend issues, `backend-developer` for Backend issues — passing it the issue number, a link to the posted plan comment, and the test list so it doesn't have to re-derive them
-   - If the plan spans both repos, this workspace root's CLAUDE.md says paired cross-repo work gets two cross-linked single-repo issues, not one combined issue — check whether that split already happened before delegating; if not, flag it rather than delegating a cross-repo plan to a single repo-scoped subagent
+10. **Offer implementation options** — after posting the plan, ask the user how they want to proceed:
+    - Self-implement with `/tdd` (one test at a time) and `/code-review` when done
+    - Delegate to the matching repo-scoped subagent — `frontend-developer` for Swift-Frontend issues, `backend-developer` for Backend issues — passing it the issue number, a link to the posted plan comment, and the test list so it doesn't have to re-derive them
+    - If the plan spans both repos, this workspace root's CLAUDE.md says paired cross-repo work gets two cross-linked single-repo issues, not one combined issue — check whether that split already happened before delegating; if not, create it now. Paste the **identical** Contract section from step 6 into both linked issues' plan comments — the paired issue must show the same shape diff, not just a link to the first one — so neither implementer has to re-derive or trust the other side's version.
 
 ## Rules
 
 - No implementation code during this skill — planning only
 - Keep the test list at the right altitude: one test per behavior, not one per line of code
 - If the issue touches existing code, read the relevant files before proposing an approach
+- A Contract section, once written, goes into both linked issues verbatim — a cross-link alone is not sufficient for a contract-impacting change
