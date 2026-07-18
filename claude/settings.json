@@ -8,6 +8,16 @@
     ]
   },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Reminder: before running ad-hoc commands, check the available-skills list for a trigger-phrase match on this prompt. If one matches, invoke that skill via the Skill tool instead of manual tool calls.\"}}'"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
