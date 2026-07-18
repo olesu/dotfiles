@@ -12,9 +12,11 @@ Fetch open GitHub issues for the current repo, prioritize them, and present a so
    - Exit 1 or other failure: tell the user no GitHub repository was found here or in any subdirectory, and stop.
 
 2. **Fetch open issues** — run (from the repo path resolved above; once per candidate repo when scanning multiple):
-   ```
+
+   ```bash
    bash ~/.dotfiles/scripts/gh-issue-list.sh
    ```
+
    Show all fetched issues by default — don't ask the user for label/milestone/assignee filters up front. Only filter if the user asks for it (in this run or a follow-up).
 
 3. **Prioritize** — score each issue using these signals, in order of weight:

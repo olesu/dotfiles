@@ -4,12 +4,13 @@ Set up sourcekit-lsp for a Swift Xcode project so the LSP tool and editors (e.g.
 
 ## Step 1 — check xcode-build-server
 
-```
+```bash
 which xcode-build-server
 ```
 
 If not found:
-```
+
+```bash
 brew install xcode-build-server
 ```
 
@@ -17,13 +18,13 @@ brew install xcode-build-server
 
 Look for a `.xcodeproj` in the current directory and check `CLAUDE.md` for the scheme name. If there is exactly one `.xcodeproj`, use it. If the scheme is not in `CLAUDE.md`, it usually matches the project name.
 
-```
+```bash
 ls *.xcodeproj
 ```
 
 ## Step 3 — generate buildServer.json
 
-```
+```bash
 xcode-build-server config -scheme <Scheme> -project <Project>.xcodeproj
 ```
 
@@ -32,7 +33,8 @@ This creates `buildServer.json` at the project root. sourcekit-lsp reads this to
 ## Step 4 — verify
 
 Check the generated file:
-```
+
+```bash
 cat buildServer.json
 ```
 
@@ -48,6 +50,7 @@ It should contain `workspace`, `build_root`, and `scheme` fields. The `build_roo
 ## LSP tool in Claude Code
 
 Once sourcekit-lsp is running, the `LSP` tool is available in Claude Code for:
+
 - `hover` — type info and docs for any symbol
 - `goToDefinition` / `goToImplementation` — navigate to source
 - `findReferences` — find all usages across the project

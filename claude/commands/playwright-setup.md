@@ -19,6 +19,7 @@ cd e2e && npm init playwright@latest
 ```
 
 Accept the defaults (TypeScript, `tests/` folder, GitHub Actions workflow optional). This creates:
+
 - `package.json`
 - `playwright.config.ts`
 - `tests/example.spec.ts`
@@ -28,7 +29,7 @@ Accept the defaults (TypeScript, `tests/` folder, GitHub Actions workflow option
 
 Add to the project root `.gitignore` (create it if absent):
 
-```
+```text
 e2e/node_modules/
 ```
 

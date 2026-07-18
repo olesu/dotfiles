@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Lint staged shell scripts
 
-files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(sh|zsh)$')
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(sh|zsh|md)$')
 
 if [ -z "$files" ]; then
   exit 0
@@ -25,6 +25,14 @@ while IFS= read -r file; do
       else
         echo "bash -n: $file"
         if ! bash -n "$file"; then
+          failed=1
+        fi
+      fi
+      ;;
+    *.md)
+      if command -v markdownlint-cli2 &>/dev/null; then
+        echo "markdownlint-cli2: $file"
+        if ! markdownlint-cli2 "$file"; then
           failed=1
         fi
       fi

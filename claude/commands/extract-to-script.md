@@ -22,13 +22,16 @@ Inline bash sequences in skills require a permission prompt for every individual
 4. **Make it executable**: `chmod +x ~/.dotfiles/scripts/<name>.sh`
 
 5. **Update the skill file** — replace the inlined bash steps with a single call:
-   ```
+
+   ```text
    Run `bash ~/.dotfiles/scripts/<name>.sh [args]`
    ```
+
    Keep surrounding context (step numbers, rules) intact.
 
 6. **Commit and push** from `~/.dotfiles`:
-   ```
+
+   ```bash
    git add scripts/<name>.sh claude/commands/<skill>.md
    git commit -m "refactor(<scope>): extract <sequence description> into scripts/<name>.sh"
    git push

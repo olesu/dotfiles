@@ -19,7 +19,7 @@ Scope a Claude Code plugin so it only appears in the projects that need it, inst
 }
 ```
 
-2. Add it to each project that actually needs it (`.claude/settings.json` in the project root):
+1. Add it to each project that actually needs it (`.claude/settings.json` in the project root):
 
 ```json
 {

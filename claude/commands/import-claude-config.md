@@ -11,10 +11,12 @@ Import a file or directory from `~/.claude` into the dotfiles repo and replace t
    - File: `cp ~/.claude/<name> ~/.dotfiles/claude/<name>`
    - Directory: `cp -r ~/.claude/<name> ~/.dotfiles/claude/<name>`
 5. Remove the original and create the symlink:
+
    ```bash
    rm -rf ~/.claude/<name>
    ln -s ~/.dotfiles/claude/<name> ~/.claude/<name>
    ```
+
 6. Verify: `ls -la ~/.claude/<name>` — confirm it shows as a symlink to the dotfiles path.
 7. Update `~/.dotfiles/CLAUDE.md` — add a line to the **Symlink targets** list:
    - File: `` `claude/<name>` → `~/.claude/<name>` ``

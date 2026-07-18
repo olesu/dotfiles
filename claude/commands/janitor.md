@@ -23,7 +23,8 @@ After Homebrew, run:
 ```
 
 Each output line has the format:
-```
+
+```text
 <name> <pinned-sha> up-to-date
 <name> <pinned-sha> outdated <upstream-sha> <new-commit-count>
 ```

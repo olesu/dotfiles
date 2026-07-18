@@ -33,7 +33,7 @@ A structured planning session that takes a GitHub issue from raw description to 
 
 9. **Write the plan to the issue** — post a comment via `gh issue comment <number> --body "$(cat <<'EOF' ... EOF)"`. Use this format:
 
-```
+```markdown
 ## Plan
 
 <2–3 sentence summary of the approach>
@@ -53,7 +53,7 @@ A structured planning session that takes a GitHub issue from raw description to 
 - <item explicitly excluded>
 ```
 
-10. **Offer implementation options** — after posting the plan, ask the user how they want to proceed:
+1. **Offer implementation options** — after posting the plan, ask the user how they want to proceed:
     - Self-implement with `/tdd` (one test at a time) and `/code-review` when done
     - Delegate to the matching repo-scoped subagent — `frontend-developer` for Swift-Frontend issues, `backend-developer` for Backend issues — passing it the issue number, a link to the posted plan comment, and the test list so it doesn't have to re-derive them
     - If the plan spans both repos, this workspace root's CLAUDE.md says paired cross-repo work gets two cross-linked single-repo issues, not one combined issue — check whether that split already happened before delegating; if not, create it now. Paste the **identical** Contract section from step 6 into both linked issues' plan comments — the paired issue must show the same shape diff, not just a link to the first one — so neither implementer has to re-derive or trust the other side's version.

@@ -14,14 +14,16 @@ Fetch and display a single GitHub issue with all comments.
 2. **Resolve the number** — use the number from the skill argument. If none was provided, ask the user for it.
 
 3. **Fetch** — run (from the repo path resolved above):
-   ```
+
+   ```bash
    bash ~/.dotfiles/scripts/gh-issue-view.sh <number>
    ```
+
    Parse as JSON. If the command fails or returns empty output, tell the user and stop.
 
 4. **Display** — render the issue in a readable format:
 
-   ```
+   ```text
    #<number> — <title>
    State: <open|closed>   Labels: <label, ...>   Milestone: <name or —>
 

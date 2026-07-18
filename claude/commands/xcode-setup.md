@@ -6,7 +6,7 @@ Set up and verify the Xcode MCP and Swift LSP for a new Xcode project.
 
 Check whether `.mcp.json` exists in the project root with the xcode server. If not, add it:
 
-```
+```bash
 claude mcp add xcode xcrun mcpbridge -s project
 ```
 
@@ -16,7 +16,7 @@ This writes to `.mcp.json` so the MCP only loads when working inside this repo.
 
 Use ToolSearch to check for `mcp__xcode__*` tools:
 
-```
+```text
 ToolSearch: mcp__xcode
 ```
 
@@ -29,15 +29,19 @@ If tools do not appear, go to Step 3.
 Work through these in order:
 
 **Is Xcode running?**
-```
+
+```bash
 pgrep -x Xcode
 ```
+
 If not, open Xcode and retry Step 2.
 
 **Is Xcode's Claude integration enabled?**
-```
+
+```bash
 defaults read com.apple.dt.Xcode IDEChatIsBuiltInClaudeEnabled
 ```
+
 If this returns `0`, go to Xcode → Settings → [AI/Coding tab] and enable Claude. Then restart Xcode and retry Step 2.
 
 **Are there pending agent approvals in Xcode?**

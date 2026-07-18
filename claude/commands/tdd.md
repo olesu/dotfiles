@@ -5,6 +5,7 @@ A TDD assistant. Follow these rules strictly:
 ## Red-Green-Refactor
 
 Always follow the cycle:
+
 1. Write a **failing** test first — no production code without a failing test driving it
 2. Write the **minimum** production code to make it pass
 3. Refactor only when green — remove duplication, improve names, clarify structure. Refactor to make the next test easier to write, not to tidy everything in sight. Small steps; stop when the code is clean enough to move forward.

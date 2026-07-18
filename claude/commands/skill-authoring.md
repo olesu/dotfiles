@@ -11,7 +11,8 @@ After creating or updating a skill, commit and push in `~/.dotfiles`.
 Every skill file must start with a trigger line so the model knows when to invoke it automatically. Without this, the skill is only used when explicitly called with `/skill-name`.
 
 Format:
-```
+
+```text
 Trigger this skill when the user mentions: <comma-separated keywords and phrases>.
 ```
 

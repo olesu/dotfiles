@@ -102,6 +102,7 @@ launchctl load ~/Library/LaunchAgents/<name>.plist
 ```
 
 Current agents:
+
 - `com.olesu.update-claude-code.plist` — daily at 09:00, `brew upgrade claude-code`
 - `com.olesu.janitor.plist` — Mondays at 09:00, full brew maintenance via `scripts/janitor.sh`
 
@@ -125,22 +126,26 @@ Shell scripts called by launchd agents or run manually.
 Slash commands available in any Claude Code session. Symlinked to `~/.claude/commands/`.
 
 **GitHub issue workflow:**
+
 - `/list-issues` — fetch open issues, prioritize (priority/severity labels → bugs → recency), recommend what to work on next
 - `/view-issue <number>` — fetch and render a single issue with comments
 - `/file-issue` — draft and create a new issue, applying existing repo labels where they fit
 - `/kickoff <number>` — structured planning session: discuss approach, build test list, post plan as issue comment
 
 **Development workflow:**
+
 - `/ship` — stage, commit (Conventional Commits), and push in one step
 - `/tdd` — red-green-refactor loop guide
 - `/code-review` — review current diff for bugs and cleanup opportunities
 
 **Project setup:**
+
 - `/xcode-setup` — verify Xcode MCP is wired up correctly
 - `/playwright-setup` — add Playwright e2e testing to a native project
 - `/swift-lsp` — configure SourceKit-LSP for Swift projects
 
 **Dotfiles maintenance:**
+
 - `/janitor` — run brew maintenance and system cleanup
 - `/skill-authoring` — scaffold a new skill file with correct format and triggers
 - `/extract-to-script` — move inline bash logic into `scripts/`
