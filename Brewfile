@@ -13,6 +13,7 @@ brew "starship"         # Cross-shell prompt
 brew "tmux"             # Terminal multiplexer
 brew "gitmux"           # Git status in tmux status bar
 brew "neovim"           # Modern vim
+brew "shellcheck"       # Shell script linter (used by pre-commit hook)
 
 brew "rbenv"            # Ruby version manager
 brew "ruby-build"       # rbenv plugin to install Ruby versions

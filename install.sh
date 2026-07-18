@@ -13,6 +13,7 @@ LINKS=(
   "starship/starship.toml               $HOME/.config/starship.toml"
   "gitmux/gitmux.conf                   $HOME/.gitmux.conf"
   "git/gitconfig                        $HOME/.gitconfig"
+  "git/hooks/pre-commit                 $DOTFILES/.git/hooks/pre-commit"
   "lazygit/config.yml                   $HOME/.config/lazygit/config.yml"
 
   # Neovim (directory — too many nested files to enumerate)
