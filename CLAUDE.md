@@ -117,14 +117,17 @@ Shell scripts called by launchd agents or run manually.
 - `gh-repo-name.sh` — prints `owner/repo` for the current directory; exits non-zero with a message if not in a GitHub repo
 - `gh-issue-list.sh` — fetches open issues as JSON (`--limit 100`); accepts optional `--limit N`
 - `gh-issue-view.sh <number>` — fetches a single issue as JSON including comments
+- `gh-issue-create.sh <title> [label...]` — creates an issue; body is read from stdin, prints the created issue URL
+- `gh-label-list.sh` — fetches the current repo's labels as JSON (name, description)
 
 ### Claude skills (`claude/commands/`)
 
 Slash commands available in any Claude Code session. Symlinked to `~/.claude/commands/`.
 
 **GitHub issue workflow:**
-- `/list-issues` — fetch open issues, filter by label/milestone/assignee, display sorted table
+- `/list-issues` — fetch open issues, prioritize (priority/severity labels → bugs → recency), recommend what to work on next
 - `/view-issue <number>` — fetch and render a single issue with comments
+- `/file-issue` — draft and create a new issue, applying existing repo labels where they fit
 - `/kickoff <number>` — structured planning session: discuss approach, build test list, post plan as issue comment
 
 **Development workflow:**

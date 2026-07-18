@@ -29,9 +29,12 @@ LINKS=(
   "claude/scripts/gh-repo-name.sh       $HOME/.claude/scripts/gh-repo-name.sh"
   "claude/scripts/gh-issue-list.sh      $HOME/.claude/scripts/gh-issue-list.sh"
   "claude/scripts/gh-issue-view.sh      $HOME/.claude/scripts/gh-issue-view.sh"
+  "claude/scripts/gh-issue-create.sh    $HOME/.claude/scripts/gh-issue-create.sh"
+  "claude/scripts/gh-label-list.sh      $HOME/.claude/scripts/gh-label-list.sh"
 
   # Claude Code — skills
   "claude/commands/extract-to-script.md   $HOME/.claude/commands/extract-to-script.md"
+  "claude/commands/file-issue.md          $HOME/.claude/commands/file-issue.md"
   "claude/commands/import-claude-config.md $HOME/.claude/commands/import-claude-config.md"
   "claude/commands/janitor.md             $HOME/.claude/commands/janitor.md"
   "claude/commands/kickoff.md             $HOME/.claude/commands/kickoff.md"
