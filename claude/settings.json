@@ -27,10 +27,15 @@
     "type": "command",
     "command": "~/.claude/scripts/statusline.sh"
   },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  },
   "alwaysThinkingEnabled": true,
   "autoUpdatesChannel": "stable",
   "tui": "default",
-  "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true
-  }
+  "editorMode": "vim",
+  "vimInsertModeRemaps": {
+    "jk": "<Esc>"
+  },
+  "agentPushNotifEnabled": true
 }
