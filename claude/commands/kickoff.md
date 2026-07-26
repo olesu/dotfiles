@@ -11,7 +11,7 @@ A structured planning session that takes a GitHub issue from raw description to 
    - Exit 2: multiple `<path>\t<owner/repo>` candidates (cwd is a multi-repo workspace root, not a repo itself). Ask the user which repo they mean, then treat their choice like the exit-0 case above.
    - Exit 1 or other failure: tell the user no GitHub repository was found here or in any subdirectory, and stop.
 
-2. **Fetch the issue** — run `bash ~/.dotfiles/scripts/gh-issue-show.sh <number>` (from the repo path resolved above) to read the full issue including comments in native `gh` formatting — no JSON parsing needed for a read-to-plan step. (Use `gh-issue-view.sh` instead only if you need to extract a specific field programmatically.) If no number is provided, ask for it. If already in a plan comment on the issue, read it and pick up from there.
+2. **Fetch the issue** — run `bash ~/.dotfiles/scripts/gh-issue-show.sh <number>` (from the repo path resolved above) to read the full issue including comments in native `gh` formatting — no JSON parsing needed for a read-to-plan step. (Use `gh-issue-fields.sh <number>` instead if you need to extract just title/state/labels/body programmatically; fall back to `gh-issue-view.sh` for other fields like milestone or comments.) If no number is provided, ask for it. If already in a plan comment on the issue, read it and pick up from there.
 
 3. **Read project guidelines** — read the project's `CLAUDE.md` (and any files it references) to understand architecture, conventions, and constraints before planning.
 
