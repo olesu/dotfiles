@@ -7,11 +7,11 @@ A structured planning session that takes a GitHub issue from raw description to 
 ## Steps
 
 1. **Detect the repo** — run `bash ~/.dotfiles/scripts/gh-repo-name.sh`.
-   - Exit 0: one `<path>\t<owner/repo>` line. If `<path>` is `.`, cwd is already the repo. Otherwise every script call below must run from `<path>` (e.g. `cd <path> && bash ~/.dotfiles/scripts/gh-issue-view.sh <number>`).
+   - Exit 0: one `<path>\t<owner/repo>` line. If `<path>` is `.`, cwd is already the repo. Otherwise every script call below must run from `<path>` (e.g. `cd <path> && bash ~/.dotfiles/scripts/gh-issue-show.sh <number>`).
    - Exit 2: multiple `<path>\t<owner/repo>` candidates (cwd is a multi-repo workspace root, not a repo itself). Ask the user which repo they mean, then treat their choice like the exit-0 case above.
    - Exit 1 or other failure: tell the user no GitHub repository was found here or in any subdirectory, and stop.
 
-2. **Fetch the issue** — run `bash ~/.dotfiles/scripts/gh-issue-view.sh <number>` (from the repo path resolved above) to get the full issue including comments. If no number is provided, ask for it. If already in a plan comment on the issue, read it and pick up from there.
+2. **Fetch the issue** — run `bash ~/.dotfiles/scripts/gh-issue-show.sh <number>` (from the repo path resolved above) to read the full issue including comments in native `gh` formatting — no JSON parsing needed for a read-to-plan step. (Use `gh-issue-view.sh` instead only if you need to extract a specific field programmatically.) If no number is provided, ask for it. If already in a plan comment on the issue, read it and pick up from there.
 
 3. **Read project guidelines** — read the project's `CLAUDE.md` (and any files it references) to understand architecture, conventions, and constraints before planning.
 
@@ -57,6 +57,7 @@ A structured planning session that takes a GitHub issue from raw description to 
     - Self-implement with `/tdd` (one test at a time) and `/code-review` when done
     - Delegate to the matching repo-scoped subagent — `frontend-developer` for Swift-Frontend issues, `backend-developer` for Backend issues — passing it the issue number, a link to the posted plan comment, and the test list so it doesn't have to re-derive them
     - If the plan spans both repos, this workspace root's CLAUDE.md says paired cross-repo work gets two cross-linked single-repo issues, not one combined issue — check whether that split already happened before delegating; if not, create it now. Paste the **identical** Contract section from step 6 into both linked issues' plan comments — the paired issue must show the same shape diff, not just a link to the first one — so neither implementer has to re-derive or trust the other side's version.
+    - Pasting the Contract into the paired issue plans *only* its contract half — the paired issue still needs its own full kickoff (approach + test list) before it's ready to implement. Say so explicitly in the paired issue's comment (e.g. "own plan to be kicked off separately") so it doesn't look fully planned when only the shared shape is settled.
 
 ## Rules
 
