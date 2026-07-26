@@ -44,8 +44,9 @@
   "autoUpdatesChannel": "stable",
   "tui": "default",
   "editorMode": "vim",
+  "agentPushNotifEnabled": true,
   "vimInsertModeRemaps": {
     "jk": "<Esc>"
   },
-  "agentPushNotifEnabled": true
+  "model": "opus"
 }
