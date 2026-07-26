@@ -37,7 +37,11 @@ Judgment applies to *how* you implement a task, not to *what's in scope*:
 - Never close, reopen, or change the status of a GitHub issue unless
   explicitly instructed to.
 - Only touch files relevant to the task at hand. Don't refactor unrelated
-  code or add infrastructure "while you're in there."
+  code or add infrastructure "while you're in there." One carve-out: a
+  compiler warning in a file your change *already* edits is in scope — fix
+  it (or report why you couldn't) rather than leaving it as "pre-existing
+  and unrelated." That excuse is how warnings accumulate. Don't go hunting
+  warnings in files you otherwise had no reason to open.
 - If a task turns out to need Domain changes, cross-layer architecture
   decisions, or its scope is ambiguous, stop and report back rather than
   deciding unilaterally.

@@ -52,6 +52,7 @@ LINKS=(
   # Claude Code — agents
   "claude/agents/frontend-developer.md    $HOME/.claude/agents/frontend-developer.md"
   "claude/agents/backend-developer.md     $HOME/.claude/agents/backend-developer.md"
+  "claude/agents/dotfiles-developer.md    $HOME/.claude/agents/dotfiles-developer.md"
 
   # Bin wrappers
   "bin/gh                               $HOME/.local/bin/gh"
