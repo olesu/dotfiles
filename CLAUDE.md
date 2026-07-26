@@ -118,6 +118,7 @@ Shell scripts called by launchd agents or run manually.
 - `gh-repo-name.sh` — prints `owner/repo` for the current directory; exits non-zero with a message if not in a GitHub repo
 - `gh-issue-list.sh` — fetches open issues as JSON (`--limit 100`); accepts optional `--limit N`
 - `gh-issue-view.sh <number>` — fetches a single issue as JSON including comments
+- `gh-issue-show.sh <number>` — renders a single issue in native `gh` formatting with comments, for reading rather than programmatic parsing
 - `gh-issue-create.sh <title> [label...]` — creates an issue; body is read from stdin, prints the created issue URL
 - `gh-label-list.sh` — fetches the current repo's labels as JSON (name, description)
 
