@@ -12,4 +12,9 @@ if [[ $# -ne 1 ]]; then
   exit 1
 fi
 
+# `gh issue view --comments` prints ONLY the comment threads in non-TTY mode
+# (any script) — and nothing at all when the issue has no comments yet, which
+# is exactly the freshly-filed-then-read case at kickoff. Show the issue body
+# first, then append comments (a no-op when there are none).
+_gh issue view "$1"
 _gh issue view "$1" --comments
