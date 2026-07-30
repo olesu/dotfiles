@@ -16,7 +16,7 @@ Personal macOS dotfiles. Run `bash install.sh` to create all symlinks. iTerm2, z
 - `lazygit/config.yml` → `~/.config/lazygit/config.yml`
 - `claude/settings.json` → `~/.claude/settings.json`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
-- `claude/scripts/*.sh` → `~/.claude/scripts/*.sh` (individual file symlinks)
+- `claude/scripts/statusline.sh`, `claude/scripts/tmux_status_claude.sh` → `~/.claude/scripts/` (individual file symlinks; other `scripts/*.sh` are invoked directly via `~/.dotfiles/scripts/`, not mirrored here)
 - `claude/commands/*.md` → `~/.claude/commands/*.md` (individual file symlinks)
 - `claude/agents/*.md` → `~/.claude/agents/*.md` (individual file symlinks)
 - `launchd/*.plist` → `~/Library/LaunchAgents/*.plist`
@@ -119,8 +119,13 @@ Shell scripts called by launchd agents or run manually.
 - `gh-issue-list.sh` — fetches open issues as JSON (`--limit 100`); accepts optional `--limit N`
 - `gh-issue-view.sh <number>` — fetches a single issue as JSON including comments
 - `gh-issue-show.sh <number>` — renders a single issue in native `gh` formatting with comments, for reading rather than programmatic parsing
+- `gh-issue-fields.sh <number>` — extracts title, state, labels, and body from an issue via `gh-issue-view.sh` piped through `jq`, for scripts that need a single field instead of ad-hoc JSON parsing
 - `gh-issue-create.sh <title> [label...]` — creates an issue; body is read from stdin, prints the created issue URL
 - `gh-label-list.sh` — fetches the current repo's labels as JSON (name, description)
+- `git-commit.sh <message>` — stages tracked changes (`git add -u`) and commits with the given message; used by `/ship`
+- `git-push.sh` — pushes the current branch; used by `/ship`
+- `git-snapshot.sh` — prints current branch, `git status`, `git diff`, and `git log --oneline -5` in one shot, for pre-commit review; used by `/ship`
+- `check-paired-issue.sh <commit message>` — advisory check for FlexLoan's paired cross-repo issue convention; not used by anything in this repo — invoked cross-repo by absolute path from the FlexLoan repos' own Claude Code hooks (`~/Developer/FlexLoan/{Backend,Swift-Frontend}/.claude/settings.json`), which is why it's centralized here instead of duplicated in each
 
 ### Claude skills (`claude/commands/`)
 
@@ -165,3 +170,4 @@ Personal binary wrappers symlinked into `~/.local/bin/` (which is in `$PATH` ahe
 - **Neovim plugins**: add new plugin specs as individual files in `lua/plugins/`
 - **Zsh additions**: new shell functions go in `functions.zsh`, new aliases in `aliases.zsh`
 - The `nvim/lazy-lock.json` is the Neovim plugin lockfile — commit updates after `:Lazy sync`
+- `.shellcheckrc` at the repo root pins shellcheck's severity/shell/optional-check settings for `git/hooks/pre-commit`

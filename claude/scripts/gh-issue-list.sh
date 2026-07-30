@@ -1,1 +1,0 @@
-../../scripts/gh-issue-list.sh

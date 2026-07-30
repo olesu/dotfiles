@@ -1,0 +1,6 @@
+# Pins shellcheck config so git/hooks/pre-commit lints identically on every machine,
+# instead of falling back to whatever shellcheck defaults (or a stray ~/.shellcheckrc) apply.
+shell=bash             # every script here is bash; skip shell-dialect auto-detection
+severity=style         # pin the default (lowest) severity explicitly rather than relying on it
+external-sources=true  # follow `source "$(dirname "$0")/lib.sh"`-style sourcing without needing -x on the CLI
+enable=deprecate-which # prefer `command -v` over `which`; costs nothing, no script uses `which` today

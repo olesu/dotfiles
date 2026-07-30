@@ -26,12 +26,6 @@ LINKS=(
   # Claude Code — scripts
   "claude/scripts/statusline.sh         $HOME/.claude/scripts/statusline.sh"
   "claude/scripts/tmux_status_claude.sh $HOME/.claude/scripts/tmux_status_claude.sh"
-  "claude/scripts/lib.sh                $HOME/.claude/scripts/lib.sh"
-  "claude/scripts/gh-repo-name.sh       $HOME/.claude/scripts/gh-repo-name.sh"
-  "claude/scripts/gh-issue-list.sh      $HOME/.claude/scripts/gh-issue-list.sh"
-  "claude/scripts/gh-issue-view.sh      $HOME/.claude/scripts/gh-issue-view.sh"
-  "claude/scripts/gh-issue-create.sh    $HOME/.claude/scripts/gh-issue-create.sh"
-  "claude/scripts/gh-label-list.sh      $HOME/.claude/scripts/gh-label-list.sh"
 
   # Claude Code — skills
   "claude/commands/extract-to-script.md   $HOME/.claude/commands/extract-to-script.md"
