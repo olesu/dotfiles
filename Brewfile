@@ -26,3 +26,21 @@ brew "awscli"           # AWS CLI
 brew "aws-sam-cli"      # AWS SAM CLI
 brew "colima"           # Docker Desktop alternative
 brew "docker"           # Docker CLI (Colima provides the daemon)
+
+brew "coreutils"        # GNU core utilities
+brew "gawk"             # GNU awk
+brew "gnu-sed"          # GNU sed
+brew "wget"             # File retrieval over HTTP(S)/FTP
+brew "tree"             # Directory listings as a tree
+brew "bc"               # Arbitrary-precision calculator
+brew "btop"             # Resource monitor
+brew "lynx"             # Terminal web browser
+
+cask "1password"                     # Password manager
+cask "1password-cli"                 # 1Password CLI (op)
+cask "claude-code"                   # Claude Code desktop app
+cask "google-chrome"                 # Browser
+cask "iterm2"                        # Terminal emulator
+cask "visual-studio-code"            # Editor
+cask "font-jetbrains-mono"           # Font — VS Code editor.fontFamily
+cask "font-jetbrains-mono-nerd-font" # Font (Nerd Font patched) — iTerm2 terminal font

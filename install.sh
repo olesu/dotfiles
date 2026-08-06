@@ -10,7 +10,6 @@ DOTFILES="$HOME/.dotfiles"
 LINKS=(
   # Shell & prompt
   "tmux/tmux.conf                       $HOME/.tmux.conf"
-  "starship/starship.toml               $HOME/.config/starship.toml"
   "gitmux/gitmux.conf                   $HOME/.gitmux.conf"
   "git/gitconfig                        $HOME/.gitconfig"
   "git/hooks/pre-commit                 $DOTFILES/.git/hooks/pre-commit"
@@ -20,7 +19,6 @@ LINKS=(
   "nvim                                  $HOME/.config/nvim"
 
   # Claude Code — config
-  "claude/settings.json                 $HOME/.claude/settings.json"
   "claude/CLAUDE.md                     $HOME/.claude/CLAUDE.md"
 
   # Claude Code — scripts

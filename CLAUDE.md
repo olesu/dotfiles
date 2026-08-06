@@ -10,11 +10,9 @@ Personal macOS dotfiles. Run `bash install.sh` to create all symlinks. iTerm2, z
 
 - `nvim/` → `~/.config/nvim`
 - `tmux/tmux.conf` → `~/.tmux.conf`
-- `starship/starship.toml` → `~/.config/starship.toml`
 - `gitmux/gitmux.conf` → `~/.gitmux.conf`
 - `git/gitconfig` → `~/.gitconfig`
 - `lazygit/config.yml` → `~/.config/lazygit/config.yml`
-- `claude/settings.json` → `~/.claude/settings.json`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
 - `claude/scripts/statusline.sh`, `claude/scripts/tmux_status_claude.sh` → `~/.claude/scripts/` (individual file symlinks; other `scripts/*.sh` are invoked directly via `~/.dotfiles/scripts/`, not mirrored here)
 - `claude/commands/*.md` → `~/.claude/commands/*.md` (individual file symlinks)
@@ -23,6 +21,8 @@ Personal macOS dotfiles. Run `bash install.sh` to create all symlinks. iTerm2, z
 - `bin/gh` → `~/.local/bin/gh` (wrapper script — see `bin/` below)
 - `zsh/zshrc.zsh` — sourced from `~/.zshrc` (not a symlink; added manually)
 - `iterm2/` — iTerm2 reads via *Settings → General → Preferences → Load preferences from a custom folder*
+
+**Not version-controlled:** `~/.claude/settings.json` is a plain local file, not a dotfiles symlink. Claude Code rewrites fields in it at runtime (e.g. `model`), which made it a poor fit for git — every session could produce an unintentional diff. It used to be tracked as `claude/settings.json`; if reproducing this setup on a new machine, recreate it by hand.
 
 ## Common Commands
 
@@ -80,9 +80,9 @@ Built on **LazyVim** framework. `init.lua` bootstraps `lua/config/lazy.lua`.
 
 Prefix is `Ctrl-a`. Vim-tmux-navigator enables seamless `Ctrl-hjkl` navigation between Neovim splits and tmux panes. TPM manages plugins; auto-installs if missing.
 
-### Starship (`starship/`)
+### Starship
 
-Catppuccin Mocha theme. Single `starship.toml` config.
+No custom config tracked in this repo — uses Starship's built-in prompt defaults. (Previously had a Catppuccin Mocha `starship.toml`; removed in favor of defaults.)
 
 ### Python venv (`.venv/`)
 
