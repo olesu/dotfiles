@@ -21,23 +21,25 @@ Fetch open GitHub issues for the current repo, prioritize them, and present a so
 
    Show all fetched issues by default — don't ask the user for label/milestone/assignee filters up front. Only filter if the user asks for it (in this run or a follow-up).
 
-3. **Prioritize** — score each issue using these signals, in order of weight:
+3. **Cross-check the wiki** — for each repo scanned (plus the workspace root's own `docs/wiki/`, if step 1 hit Exit 2 and one exists), grep that repo's `docs/wiki/` for each fetched issue's number as a whole word, e.g. `grep -rlw "#41" docs/wiki/ 2>/dev/null` run from the repo path. Skip any repo/dir with no `docs/wiki/`. For a hit, skim the matching page for language indicating the issue is already resolved, decided, or superseded by another issue — not just referenced in passing. Flag those in the presented list (e.g. a trailing note) rather than silently trusting GitHub's `state`/labels, since a wiki page can record a resolution the issue itself was never updated or closed to reflect. This is a local grep over existing wiki content, not a fetch of anything external — cheap, and it's what caught #41 and #62/#61 being stale in practice.
+
+4. **Prioritize** — score each issue using these signals, in order of weight:
    1. **Priority/severity labels** — labels like `priority:high`, `critical`, `urgent`, `p0`/`p1` outrank everything else.
    2. **Bugs** — label contains "bug".
    3. **Recency** — most recently updated first, as a tiebreaker.
 
-   Apply this ranking across the combined list from all scanned repos unless the user requests a different order (e.g. "sort by oldest", "just bugs").
+   Apply this ranking across the combined list from all scanned repos unless the user requests a different order (e.g. "sort by oldest", "just bugs"). An issue flagged in step 3 as likely resolved/superseded should not be recommended as the next issue regardless of its score — surface it separately (see step 6) instead.
 
-4. **Present the list** — display as a markdown table with columns:
+5. **Present the list** — display as a markdown table with columns:
 
    | # | Title | Labels | Milestone | Updated | Comments |
    |---|-------|--------|-----------|---------|----------|
 
-   When multiple repos were scanned, add a leading **Repo** column (`owner/repo`) so issues from different repos aren't ambiguous. Keep titles concise (truncate at ~60 chars if needed). Format the Updated column as relative time (e.g. "3d ago", "2w ago").
+   When multiple repos were scanned, add a leading **Repo** column (`owner/repo`) so issues from different repos aren't ambiguous. Keep titles concise (truncate at ~60 chars if needed). Format the Updated column as relative time (e.g. "3d ago", "2w ago"). Append a short marker (e.g. "⚠ wiki: possibly resolved, see `<wiki-page-name>`") to any row flagged in step 3.
 
-5. **Recommend a next issue** — after the table, call out the single top-priority issue by number and title, with a one-line reason drawn from the scoring signals above (e.g. "flagged `priority:high` and the most recently updated"). If several issues are close in priority, mention the top 2-3 instead of forcing a single pick.
+6. **Recommend a next issue** — after the table, call out the single top-priority issue by number and title (excluding any flagged in step 3), with a one-line reason drawn from the scoring signals above (e.g. "flagged `priority:high` and the most recently updated"). If several issues are close in priority, mention the top 2-3 instead of forcing a single pick. If any issue was flagged in step 3, separately suggest the user confirm and close it rather than folding it into the ranked recommendation.
 
-6. **Offer next steps** — after the recommendation, offer:
+7. **Offer next steps** — after the recommendation, offer:
    - `/kickoff <number>` to plan the recommended (or any) issue
    - Filter or re-sort (e.g. by label, milestone, assignee)
 
