@@ -17,10 +17,12 @@ source "$(dirname "$0")/lib.sh"
 #   2 - multiple GitHub repos found in subdirectories; caller must
 #       disambiguate. One line per candidate on stdout.
 
-name=$(_gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) || name=""
-if [[ -n "$name" ]]; then
-  printf '.\t%s\n' "$name"
-  exit 0
+if git rev-parse --is-inside-work-tree &>/dev/null; then
+  name=$(_repo_name_from_git .) || name=$(_gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) || name=""
+  if [[ -n "$name" ]]; then
+    printf '.\t%s\n' "$name"
+    exit 0
+  fi
 fi
 
 # cwd isn't a repo — scan subdirectories, pruning common vendor/build/scratch
@@ -40,7 +42,9 @@ mapfile -t git_dirs < <(
 candidates=()
 for git_dir in "${git_dirs[@]}"; do
   repo_path=$(dirname "$git_dir")
-  repo_name=$(cd "$repo_path" && _gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) || continue
+  repo_name=$(_repo_name_from_git "$repo_path") \
+    || repo_name=$(cd "$repo_path" && _gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) \
+    || continue
   candidates+=("$repo_path"$'\t'"$repo_name")
 done
 

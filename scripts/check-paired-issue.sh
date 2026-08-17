@@ -18,7 +18,7 @@ if [[ -z "$ISSUE_NUM" ]]; then
   exit 0
 fi
 
-REPO=$(_gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) || exit 0
+REPO=$(_repo_name_from_git .) || REPO=$(_gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) || exit 0
 
 case "$REPO" in
   olesu/flexloan) OTHER_REPO="olesu/flexloan-api" ;;

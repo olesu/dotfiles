@@ -37,11 +37,11 @@ Judgment applies to *how* you implement a task, not to *what's in scope*:
 - Never close, reopen, or change the status of a GitHub issue unless
   explicitly instructed to.
 - Only touch files relevant to the task at hand. Don't refactor unrelated
-  code or add infrastructure "while you're in there." One carve-out: a
-  compiler warning in a file your change *already* edits is in scope — fix
-  it (or report why you couldn't) rather than leaving it as "pre-existing
-  and unrelated." That excuse is how warnings accumulate. Don't go hunting
-  warnings in files you otherwise had no reason to open.
+  code or add infrastructure "while you're in there." Compiler/lint warnings
+  are the one exception to "only touch relevant files": zero tolerance means
+  fix any warning the build reports, in any file, before declaring the task
+  done — "pre-existing" or "not in scope" is never a reason to leave one.
+  Report what you fixed and why in your summary so it's easy to review.
 - If a task turns out to need Domain changes, cross-layer architecture
   decisions, or its scope is ambiguous, stop and report back rather than
   deciding unilaterally.
@@ -51,6 +51,16 @@ Judgment applies to *how* you implement a task, not to *what's in scope*:
   and report back rather than guessing at the other side. You only have
   visibility into this repo.
 - Never push to git without explicit confirmation.
+- Scope every filesystem search (`find`, `grep -r`, `rg`) to your working
+  directory or a subdirectory of it — never to `/` or another absolute path
+  outside the repo. If you're unsure where something lives, narrow the
+  search path rather than widening it.
+- If your commit resolves a GitHub issue, the commit message must use
+  GitHub's closing keyword syntax — `Closes #N` / `Fixes #N` / `Resolves
+  #N` — never a bare reference like `(flexloan#N)` or a prose mention of
+  the number. Only the keyword form auto-closes the issue on merge; a bare
+  reference silently leaves it open, which has already caused issues to
+  sit open after being fixed and merged.
 
 ## Working conventions
 
