@@ -2,10 +2,14 @@ export EDITOR=nvim
 export VISUAL=nvim
 export XDG_CONFIG_HOME="$HOME/.config"
 
-LESSOPEN="|$(brew --prefix)/lesspipe.sh %s"
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
+  export HOMEBREW_PREFIX="$(brew --prefix)"
+fi
+
+LESSOPEN="|$HOMEBREW_PREFIX/lesspipe.sh %s"
 export LESSOPEN
 
-FZF_BASE="$(brew --prefix)/opt/fzf"
+FZF_BASE="$HOMEBREW_PREFIX/opt/fzf"
 export FZF_BASE
 
 export FZF_CTRL_T_COMMAND="fd --type f | cless"
