@@ -1,15 +1,16 @@
 return {
-  -- Ensure neotest core is set up
   {
     "nvim-neotest/neotest",
     dependencies = {
       "marilari88/neotest-vitest",
-      "wojciech-kulik/xcodebuild.nvim",
+      "nvim-neotest/neotest-python",
     },
     opts = {
       adapters = {
         ["neotest-vitest"] = {},
-        ["xcodebuild.integrations.neotest"] = {},
+        ["neotest-python"] = {
+          dap = { justMyCode = false },
+        },
       },
     },
   },
