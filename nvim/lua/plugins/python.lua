@@ -7,6 +7,9 @@ return {
           python = {
             venvPath = ".",
             venv = ".venv",
+            analysis = {
+              autoImportCompletions = true,
+            },
           },
         },
       },
