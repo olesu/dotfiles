@@ -44,3 +44,4 @@ cask "iterm2"                        # Terminal emulator
 cask "visual-studio-code"            # Editor
 cask "font-jetbrains-mono"           # Font — VS Code editor.fontFamily
 cask "font-jetbrains-mono-nerd-font" # Font (Nerd Font patched) — iTerm2 terminal font
+cask "antigravity-cli" # Google's CLI code assistant
